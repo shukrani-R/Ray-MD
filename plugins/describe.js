@@ -1,8 +1,8 @@
 const {
-  ezra
-} = require("../fredi/ezra");
+  ray
+} = require("../shukrani/ray");
 const axios = require("axios");
-ezra({
+ray({
   'nomCom': 'define',
   'reaction': '♻️',
   'categorie': "Search"
