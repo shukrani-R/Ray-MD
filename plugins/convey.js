@@ -1,6 +1,6 @@
 const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
-const { ezra } = require("../fredi/ezra");
-const traduire = require("../fredi/traduction");
+const { ray } = require("../shukrani/ray");
+const traduire = require("../shukrani/traduction");
 const { downloadMediaMessage,downloadContentFromMessage } =  require('@whiskeysockets/baileys');
 const fs =require("fs-extra") ;
 const axios = require('axios');  
@@ -36,7 +36,7 @@ async function uploadToTelegraph(Path) {
 
 
 
-ezra({nomCom:"ss",categorie: "Conversion", reaction: "❤️"},async(origineMessage,zk,commandeOptions)=>{
+ray({nomCom:"ss",categorie: "Conversion", reaction: "❤️"},async(origineMessage,zk,commandeOptions)=>{
 
 let {ms,mtype,arg,repondre,nomAuteurMessage}=commandeOptions
   var txt=JSON.stringify(ms.message)
@@ -70,7 +70,7 @@ const alea = (ext) => {
     }
 
     sticker = new Sticker(buffer, {
-      pack:"LUCKY-MD" ,
+      pack:"RAY-MD" ,
       author: nomAuteurMessage,
       type:
         arg.includes("crop") || arg.includes("c")
@@ -94,7 +94,7 @@ const alea = (ext) => {
     }
 
     sticker = new Sticker(buffer, {
-      pack:"FREDI TECH", // pack stick
+      pack:"SHUKRANI TECH", // pack stick
       author:  nomAuteurMessage, // name of the author of the stick
       type:
         arg.includes("-r") || arg.includes("-c")
@@ -127,7 +127,7 @@ try{
   
 });
 
-ezra({nomCom:"croping",categorie: "Conversion", reaction: "♻️"},async(origineMessage,zk,commandeOptions)=>{
+ray({nomCom:"croping",categorie: "Conversion", reaction: "♻️"},async(origineMessage,zk,commandeOptions)=>{
    const {ms , msgRepondu,arg,repondre,nomAuteurMessage} = commandeOptions ;
 
   if(!msgRepondu) { repondre( 'make sure to mention the media' ) ; return } ;
@@ -163,7 +163,7 @@ mediamsg = msgRepondu.videoMessage
 
 });
 
-ezra({nomCom:"getstickers",categorie: "Conversion", reaction: "😜"},async(origineMessage,zk,commandeOptions)=>{
+ray({nomCom:"getstickers",categorie: "Conversion", reaction: "😜"},async(origineMessage,zk,commandeOptions)=>{
    const {ms , msgRepondu,arg,repondre,nomAuteurMessage} = commandeOptions ;
 
   if(!msgRepondu) { repondre( 'make sure to mention the media' ) ; return } ;
@@ -201,7 +201,7 @@ mediamsg = msgRepondu.videoMessage
 
 
 
-ezra({ nomCom: "words", categorie: "Conversion", reaction: "😂" }, async (origineMessage, zk, commandeOptions) => {
+ray({ nomCom: "words", categorie: "Conversion", reaction: "😂" }, async (origineMessage, zk, commandeOptions) => {
   const { ms, msgRepondu, arg, repondre, nomAuteurMessage } = commandeOptions;
 
   if (!msgRepondu) {
@@ -275,7 +275,7 @@ ezra({ nomCom: "words", categorie: "Conversion", reaction: "😂" }, async (orig
 
 
 
-ezra({nomCom:"picture1",categorie: "Conversion", reaction: "💀"},async(dest,zk,commandeOptions)=>{
+ray({nomCom:"picture1",categorie: "Conversion", reaction: "💀"},async(dest,zk,commandeOptions)=>{
    const {ms , msgRepondu,arg,repondre,nomAuteurMessage} = commandeOptions ;
 
   if(!msgRepondu) { repondre( 'make sure to mention the media' ) ; return } ;
@@ -314,7 +314,7 @@ ezra({nomCom:"picture1",categorie: "Conversion", reaction: "💀"},async(dest,zk
         });
 });
 
-ezra({ nomCom: "trt", categorie: "Conversion", reaction: "⌛" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "trt", categorie: "Conversion", reaction: "⌛" }, async (dest, zk, commandeOptions) => {
 
   const { msgRepondu, repondre , arg } = commandeOptions;
 
