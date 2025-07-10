@@ -1,7 +1,7 @@
 
 var tabCmds = [];
 let cm = [];
-function ezra(obj, fonctions) {
+function ray(obj, fonctions) {
     let infoComs = obj;
     if (!obj.categorie) {
         infoComs.categorie = "General";
@@ -14,4 +14,4 @@ function ezra(obj, fonctions) {
     // console.log('chargement...')
     return infoComs;
 }
-module.exports = { ezra, Module: ezra, cm };
+module.exports = { ray, Module: ray, cm };
