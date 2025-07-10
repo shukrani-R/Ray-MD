@@ -1,7 +1,7 @@
 const {
-  ezra
-} = require('../fredi/ezra');
-ezra({
+  ray
+} = require('../shukrani/ray');
+ray({
   'nomCom': "tictac",
   'categorie': "Games",
   'reaction': '🎮'
