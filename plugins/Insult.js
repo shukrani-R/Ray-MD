@@ -1,7 +1,7 @@
-const { ezra } = require('../fredi/ezra');
+const { ray } = require('../shukrani/ray');
 const axios = require("axios");
 
-ezra({
+ray({
   nomCom: "insult",
   aliases: ["abuse", "tusi"],
   categorie: "search",
