@@ -1,5 +1,5 @@
 
-const { ezra } = require('../fredi/ezra');
+const { ray } = require('../shukrani/ray');
 const Heroku = require('heroku-client');
 const s = require("../set");
 const axios = require("axios");
@@ -39,7 +39,7 @@ async function loading(dest, zk) {
   }
 }
 
-ezra({
+ray({
   nomCom: "test",
   aliases: ["testing"],
   categorie: "system",
@@ -152,7 +152,7 @@ ezra({
 });
 
 
-ezra({
+ray({
   nomCom: 'restart',
   aliases: ['reboot'],
   categorie: "system"
@@ -184,7 +184,7 @@ ezra({
 
 
 // Command to retrieve Heroku config vars
-ezra({
+ray({
   nomCom: 'allvar',
   categorie: "system"
 }, async (chatId, zk, context) => {
@@ -192,7 +192,7 @@ ezra({
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner 🤦*");
+    return repondre("*This command is restricted to the bot owner or Ray owner 🤦*");
   }
 
   const appname = s.HEROKU_APP_NAME;
@@ -227,7 +227,7 @@ ezra({
 });
 
 // Command to set a Heroku config var
-ezra({
+ray({
   nomCom: 'setvar',
   categorie: "system"
 }, async (chatId, zk, context) => {
@@ -235,7 +235,7 @@ ezra({
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner 🤦*");
+    return repondre("*This command is restricted to the bot owner or Ray owner 🤦*");
   }
 
   const appname = s.HEROKU_APP_NAME;
@@ -269,7 +269,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "shell",
   aliases: ["getcmd", "cmd"],
   reaction: '🍂',
@@ -308,7 +308,7 @@ ezra({
   });
 });
 
-ezra(
+ray(
   {
     nomCom: 'ping',
     aliases: ['speed', 'latency'],
@@ -394,7 +394,7 @@ function react(dest, zk, msg, reaction) {
 }
 
 
-ezra({
+ray({
   nomCom: 'update',
   aliases: ['redeploy', 'sync'],
   categorie: "system"
@@ -403,7 +403,7 @@ ezra({
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner 🤦*");
+    return repondre("*This command is restricted to the bot owner or Ray owner 🤦*");
   }
 
   // Ensure Heroku app name and API key are set
@@ -423,7 +423,7 @@ ezra({
         `https://api.heroku.com/apps/${herokuAppName}/builds`,
         {
           source_blob: {
-            url: "https://github.com/Fred1e/LUCKY_MD/tarball/main",
+            url: "https://github.com/shukrani-R/Ray-MD.git/tarball/main",
           },
         },
         {
@@ -435,7 +435,7 @@ ezra({
       );
 
       // Notify the user about the update and redeployment
-      await repondre("*Your bot is getting updated, wait 2 minutes for the redeploy to finish! This will install the latest version of LUCKY-MD.*");
+      await repondre("*Your bot is getting updated, wait 2 minutes for the redeploy to finish! This will install the latest version of RAY-MD.*");
       console.log("Build details:", response.data);
     } catch (error) {
       // Handle any errors during the redeployment process
@@ -449,7 +449,7 @@ ezra({
   redeployApp();
 });
 
-ezra({
+ray({
   nomCom: "fetch",
   aliases: ["get", "find"],
   categorie: "system",
