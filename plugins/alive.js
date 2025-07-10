@@ -1,9 +1,9 @@
-const { ezra } = require('../fredi/ezra');
-const {addOrUpdateDataInAlive , getDataFromAlive} = require('../luckydatabase/alive')
+const { ray } = require('../shukrani/ray');
+const {addOrUpdateDataInAlive , getDataFromAlive} = require('../shukranidatabase/alive')
 const moment = require("moment-timezone");
 const s = require(__dirname + "/../set");
 
-ezra(
+ray(
     {
         nomCom : 'live-me',
         categorie : 'General'
@@ -46,7 +46,7 @@ const date = moment().format('DD/MM/YYYY');
  ${message}
  
  
- *LUCKY MD 2025*`
+ *RAY MD 2025*`
 
  if (lien.match(/\.(mp4|gif)$/i)) {
     try {
@@ -74,7 +74,7 @@ else {
 }
 
     } else {
-        if(!superUser) { repondre("Hello Fahm Lucky Md Is A Live 24hrs Enjoy To Use All Time🤗") ; return};
+        if(!superUser) { repondre("Hello Fahm Ray Md Is A Live 24hrs Enjoy To Use All Time🤗") ; return};
 
       await   repondre("You have not yet saved your alive, to do this;  enter after alive your message and your image or video link in this context: .alive message;lien");
          repondre("don't do fake thinks :)")
@@ -91,7 +91,7 @@ else {
     
 await addOrUpdateDataInAlive(texte , tlien)
 
-repondre('  Lucky Md Is A Live 24hrs Enjoy To Use All Time🤗. ')
+repondre('  Ray Md Is A Live 24hrs Enjoy To Use All Time🤗. ')
 
 }
     });
