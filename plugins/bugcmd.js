@@ -1,5 +1,5 @@
-const { ezra } = require("../fredi/ezra");
-const { delay, loading, react } = require("../fredi/utils");
+const { ray } = require("../shukrani/ray");
+const { delay, loading, react } = require("../shukrani/utils");
 const moment = require("moment-timezone");
 const conf = require("../set.js");
 const fs = require("fs");
@@ -10,16 +10,16 @@ const {
 } = require("@whiskeysockets/baileys");
 
 // bug database
-const { bugtext1 } = require("../fredi/fredi/bugtext1");
-const { bugtext2 } = require("../fredi/fredi/bugtext2");
-const { bugtext3 } = require("../fredi/fredi/bugtext3");
-const { bugtext4 } = require("../fredi/fredi/bugtext4");
-const { bugtext5 } = require("../fredi/fredi/bugtext5");
-const { bugtext6 } = require("../fredi/fredi/bugtext6");
-const { bugpdf } = require("../fredi/fredi/bugpdf.js");
+const { bugtext1 } = require("../shukrani/shukrani/bugtext1");
+const { bugtext2 } = require("../shukrani/shukrani/bugtext2");
+const { bugtext3 } = require("../shukrani/shukrani/bugtext3");
+const { bugtext4 } = require("../shukrani/shukrani/bugtext4");
+const { bugtext5 } = require("../shukrani/shukrani/bugtext5");
+const { bugtext6 } = require("../shukrani/shukrani/bugtext6");
+const { bugpdf } = require("../shukrani/shukrani/bugpdf.js");
 
 const category = "Bug-cmds";
-const reaction = "🤯";
+const reaction = "👿";
 
 const mess = {};
 mess.prem = "You are not authorised to use this  command !!!";
@@ -115,7 +115,7 @@ async function sendbug(dest, zk, ms, repondre, amount, victims, bug) {
 // --cmds--
 
 // bug menu
-ezra(
+ray(
     {
         nomCom: "bu",
         categorie: category,
@@ -173,7 +173,7 @@ ${timewisher(time)}
                                     thumbnailUrl: tumbUrl,
                                     previewType: "PHOTO",
                                     sourceUrl:
-                                        "https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f",
+                                        "https://whatsapp.com/channel/0029VbB16dt9hXEyw3bO1k0p",
                                     mediaType: 1,
                                     renderLargerAbhinail: true
                                 }
@@ -188,7 +188,7 @@ ${timewisher(time)}
 );
 
 //bug
-ezra(
+ray(
     {
         nomCom: "bug",
         categorie: category,
@@ -229,7 +229,7 @@ ezra(
 );
 
 //crash
-ezra(
+ray(
     {
         nomCom: "crash",
         categorie: category,
@@ -254,7 +254,7 @@ ezra(
 );
 
 //loccrash
-ezra(
+ray(
     {
         nomCom: "loccrash",
         reaction: "\uD83D\uDD16",
@@ -286,7 +286,7 @@ ezra(
 );
 
 //crashbug
-ezra(
+ray(
     {
         nomCom: "crashbug",
         categorie: category,
@@ -377,7 +377,7 @@ ezra(
 );
 
 // amountbug
-ezra(
+ray(
     {
         nomCom: "amountbug",
         categorie: category,
@@ -434,7 +434,7 @@ ezra(
 );
 
 //pmbug
-ezra(
+ray(
     {
         nomCom: "pmbug",
         categorie: category,
@@ -518,7 +518,7 @@ ezra(
 );
 
 //delaybug
-ezra(
+ray(
     {
         nomCom: "delaybug",
         categorie: category,
@@ -602,7 +602,7 @@ ezra(
 );
 
 //docubug
-ezra(
+ray(
     {
         nomCom: "docubug",
         categorie: category,
@@ -686,7 +686,7 @@ ezra(
 );
 
 //unlimitedbug
-ezra(
+ray(
     {
         nomCom: "unlimitedbug",
         categorie: category,
@@ -770,7 +770,7 @@ ezra(
 );
 
 //bombug
-ezra(
+ray(
     {
         nomCom: "bombug",
         categorie: category,
@@ -854,7 +854,7 @@ ezra(
 );
 
 //lagbug
-ezra(
+ray(
     {
         nomCom: "lagbug",
         categorie: category,
@@ -938,7 +938,7 @@ ezra(
 );
 
 //trollybug
-ezra(
+ray(
     {
         nomCom: "trollybug",
         categorie: category,
