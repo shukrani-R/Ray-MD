@@ -1,6 +1,6 @@
 const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
-const { ezra } = require("../fredi/ezra");
-const traduire = require("../fredi/traduction");
+const { ray } = require("../shukrani/ray");
+const traduire = require("../shukrani/traduction");
 const { downloadMediaMessage,downloadContentFromMessage } =  require('@whiskeysockets/baileys');
 const fs =require("fs-extra") ;
 const axios = require('axios');  
@@ -70,7 +70,7 @@ const alea = (ext) => {
     }
 
     sticker = new Sticker(buffer, {
-      pack:"LUCKY-MD" ,
+      pack:"RAY-MD" ,
       author: nomAuteurMessage,
       type:
         arg.includes("crop") || arg.includes("c")
@@ -94,7 +94,7 @@ const alea = (ext) => {
     }
 
     sticker = new Sticker(buffer, {
-      pack:"FREDI TECH", // pack stick
+      pack:"SHUKRANI TECH", // pack stick
       author:  nomAuteurMessage, // name of the author of the stick
       type:
         arg.includes("-r") || arg.includes("-c")
@@ -163,7 +163,7 @@ mediamsg = msgRepondu.videoMessage
 
 });
 
-ezra({nomCom:"get-stic",categorie: "Conversion", reaction: "😜"},async(origineMessage,zk,commandeOptions)=>{
+ray({nomCom:"get-stic",categorie: "Conversion", reaction: "😜"},async(origineMessage,zk,commandeOptions)=>{
    const {ms , msgRepondu,arg,repondre,nomAuteurMessage} = commandeOptions ;
 
   if(!msgRepondu) { repondre( 'make sure to mention the media' ) ; return } ;
@@ -201,7 +201,7 @@ mediamsg = msgRepondu.videoMessage
 
 
 
-ezra({ nomCom: "fwords", categorie: "Conversion", reaction: "😂" }, async (origineMessage, zk, commandeOptions) => {
+ray({ nomCom: "fwords", categorie: "Conversion", reaction: "😂" }, async (origineMessage, zk, commandeOptions) => {
   const { ms, msgRepondu, arg, repondre, nomAuteurMessage } = commandeOptions;
 
   if (!msgRepondu) {
@@ -252,7 +252,7 @@ ezra({ nomCom: "fwords", categorie: "Conversion", reaction: "😂" }, async (ori
     // Create the sticker
     const stickerMess = new Sticker(meme, {
       pack: nomAuteurMessage,
-      author: 'FREDI TECH',
+      author: 'SHUKRANI TECH',
       type: StickerTypes.FULL,
       categories: ["🤩", "🎉"],
       id: "12345",
@@ -275,7 +275,7 @@ ezra({ nomCom: "fwords", categorie: "Conversion", reaction: "😂" }, async (ori
 
 
 
-ezra({nomCom:"pictures",categorie: "Conversion", reaction: "💀"},async(dest,zk,commandeOptions)=>{
+ray({nomCom:"pictures",categorie: "Conversion", reaction: "💀"},async(dest,zk,commandeOptions)=>{
    const {ms , msgRepondu,arg,repondre,nomAuteurMessage} = commandeOptions ;
 
   if(!msgRepondu) { repondre( 'make sure to mention the media' ) ; return } ;
@@ -314,7 +314,7 @@ ezra({nomCom:"pictures",categorie: "Conversion", reaction: "💀"},async(dest,zk
         });
 });
 
-ezra({ nomCom: "translate", categorie: "Conversion", reaction: "⌛" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "translate", categorie: "Conversion", reaction: "⌛" }, async (dest, zk, commandeOptions) => {
 
   const { msgRepondu, repondre , arg } = commandeOptions;
 
