@@ -1,8 +1,8 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const axios = require('axios'); // Ensure axios is imported
 const conf = require(__dirname + "/../set");
 
-ezra({
+ray({
   nomCom: "hadith",
   aliases: ["islam", "hadees"],
   reaction: '📖',
@@ -25,7 +25,7 @@ ezra({
             title: conf.BOT,
             body: "Islamic Teachings",
             thumbnailUrl: conf.URL,
-            sourceUrl: "https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f",
+            sourceUrl: "https://whatsapp.com/channel/0029VbB16dt9hXEyw3bO1k0p",
             mediaType: 1,
             showAdAttribution: true,
           },
