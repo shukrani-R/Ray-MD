@@ -1,10 +1,10 @@
 const {
-  ezra
-} = require("../fredi/ezra");
+  ray
+} = require("../shukrani/ray");
 const {
   default: axios
 } = require("axios");
-ezra({
+ray({
   'nomCom': "gta",
   'reaction': '🛰️',
   'categorie': 'AI'
@@ -24,7 +24,7 @@ ezra({
       'image': {
         'url': _0x93b128
       },
-      'caption': "*powered by ✧⁠LUCKY_MD✧*"
+      'caption': "*powered by ✧RAY_MD✧*"
     }, {
       'quoted': _0x4eb9fe
     });
