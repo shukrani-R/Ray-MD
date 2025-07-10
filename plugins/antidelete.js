@@ -1,10 +1,10 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const fs = require('fs');
 
 
 let antiDeleteActive = false; // Variable pour stocker l'état de la commande anti-delete
 
-ezra({
+ray({
   nomCom: "anti-delete",
   categorie: "General",
   reaction: "😏"
