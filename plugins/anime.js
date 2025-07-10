@@ -1,9 +1,9 @@
 const axios = require("axios");
-const {ezra} = require("../fredi/ezra");
-const traduire = require("../fredi/traduction");
+const {ray} = require("../shukrani/ray");
+const traduire = require("../shukrani/traduction");
 const {Sticker ,StickerTypes}= require('wa-sticker-formatter');
 
-ezra({
+ray({
   nomCom: "ranime",
   categorie: "Fun",
   reaction: "📺"
@@ -35,7 +35,7 @@ async (origineMessage, zk, commandeOptions) => {
   }
 });
 
-ezra({
+ray({
   nomCom: "google",
   categorie: "Search"
 }, async (dest, zk, commandeOptions) => {
@@ -64,7 +64,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "imdb",
   categorie: "Search"
 }, async (dest, zk, commandeOptions) => {
@@ -81,7 +81,7 @@ ezra({
     const imdbData = response.data;
 
     let imdbInfo = "⚍⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚍\n";
-    imdbInfo += " ``` 𝕀𝕄𝔻𝔹 𝕊𝔼𝔸ℝℂℍ 𝔹𝕐 𝕃𝕌ℂ𝕂𝕐 𝕄𝔻```\n";
+    imdbInfo += " ``` 𝕀𝕄𝔻𝔹 𝕊𝔼𝔸ℝℂℍ 𝔹𝕐 ℝ𝔸𝕐 𝕄𝔻```\n";
     imdbInfo += "⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎\n";
     imdbInfo += "🎬Title    : " + imdbData.Title + "\n";
     imdbInfo += "📅year      : " + imdbData.Year + "\n";
@@ -115,7 +115,7 @@ ezra({
 });
 
 
-ezra({
+ray({
   nomCom: "emomix",
   categorie: "Conversion"
 }, async (dest, zk, commandeOptions) => {
@@ -145,7 +145,7 @@ ezra({
       // Si la requête a réussi, envoyez l'image résultante
       
       let stickerMess = new Sticker(response.data.result, {
-        pack: LUCKY-MD,
+        pack: RAY-MD,
         type: StickerTypes.CROPPED,
         categories: ["🤩", "🎉"],
         id: "12345",
