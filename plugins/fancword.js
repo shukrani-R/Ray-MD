@@ -1,14 +1,14 @@
-const { ezra } = require("../fredi/ezra");
-const fancy = require("../fredi/style");
+const { ray } = require("../shukrani/ray");
+const fancy = require("../shukrani/style");
 
-ezra({ nomCom: "fancy", categorie: "Fun", reaction: "✍️" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "fancy", categorie: "Fun", reaction: "✍️" }, async (dest, zk, commandeOptions) => {
     const { arg, repondre, prefixe } = commandeOptions;
     const id = arg[0]?.match(/\d+/)?.join('');
     const text = arg.slice(1).join(" ");
 
     try {
         if (id === undefined || text === undefined) {
-            return await repondre(`\nExemple : ${prefixe}fancy 10 LUCKY MD 2025\n` + String.fromCharCode(8206).repeat(4001) + fancy.list('LUCKY MD 2025', fancy));
+            return await repondre(`\nExemple : ${prefixe}fancy 10 RAY MD 2025\n` + String.fromCharCode(8206).repeat(4001) + fancy.list('RAY MD 2025', fancy));
         }
 
         const selectedStyle = fancy[parseInt(id) - 1];
