@@ -1,8 +1,8 @@
-const {ezra} =require("../fredi/ezra");
+const {ray} =require("../shukrani/ray");
 const axios =require("axios");
 
 
-ezra({ nomCom: "cast",
+ray({ nomCom: "cast",
         reaction: "🎁",
         alias: ["bc"],
         desc: "Bot makes a broadcast in all groups",
