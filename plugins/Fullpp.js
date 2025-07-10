@@ -1,5 +1,5 @@
-const { ezra } = require("../fredi/ezra");
-const { generateProfilePicture } = require("../fredi/dl/Function");
+const { ray } = require("../shukrani/ray");
+const { generateProfilePicture } = require("../shukrani/dl/Function");
 const { S_WHATSAPP_NET } = require('@whiskeysockets/baileys');
 const fs = require("fs");
 
