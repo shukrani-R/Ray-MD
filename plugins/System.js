@@ -96,7 +96,7 @@ ray({
 });
 
 
-ezra({
+ray({
   nomCom: "alive",
   categorie: "system",
   reaction: "🍂"
