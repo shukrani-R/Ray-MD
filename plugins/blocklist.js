@@ -1,6 +1,6 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 
-ezra({
+ray({
   nomCom: "blocklist",
   aliases: ["listblock", "blacklist"],
   reaction: '🍂',
