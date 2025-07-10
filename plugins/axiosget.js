@@ -1,10 +1,10 @@
 
-const { ezra } = require('../fredi/ezra');
+const { ray } = require('../shukrani/ray');
 const axios = require('axios');
 const wiki = require('wikipedia');
 const conf = require(__dirname + "/../set");
 
-ezra({
+ray({
   nomCom: "technews",
   reaction: '📰',
   categorie: 'new'
@@ -21,7 +21,7 @@ ezra({
       text: news,
       contextInfo: {
         externalAdReply: {
-          title: "LUCKY-MD TECH NEWS",
+          title: "RAY-MD TECH NEWS",
           body: "keep learning", 
           thumbnailUrl: thumbnail, 
           sourceUrl: conf.GURL, 
@@ -38,7 +38,7 @@ ezra({
 });
 
 
-ezra({
+ray({
   nomCom: "biblie",
   reaction: '📖',
   categorie: "new"
@@ -52,7 +52,7 @@ ezra({
         externalAdReply: {
           title: "Bible Reference Required",
           body: "Please provide a book, chapter, and verse.",
-          thumbnailUrl: "https://files.catbox.moe/7irwqn.jpeg", // Replace with a suitable thumbnail URL
+          thumbnailUrl: "https://files.catbox.moe/42b1sn.png", // Replace with a suitable thumbnail URL
           sourceUrl: conf.GURL,
           mediaType: 1,
           showAdAttribution: true,
@@ -70,7 +70,7 @@ ezra({
           externalAdReply: {
             title: "Invalid Bible Reference",
             body: "Please provide a valid book, chapter, and verse.",
-            thumbnailUrl: "https://files.catbox.moe/7irwqn.jpeg", // Replace with a suitable thumbnail URL
+            thumbnailUrl: "https://files.catbox.moe/42b1sn.png", // Replace with a suitable thumbnail URL
             sourceUrl: conf.GURL,
             mediaType: 1,
             showAdAttribution: true,
@@ -81,7 +81,7 @@ ezra({
     
     const data = response.data;
     const messageText = `
-ᕙ⁠ *LUCKY MD HOLY BIBLE* ᕗ
+ᕙ⁠ *RAY MD HOLY BIBLE* ᕗ
 
 ✿⁠ *_WE'RE READING:_* ${data.reference}
 
@@ -98,10 +98,10 @@ ezra({
       text: messageText,
       contextInfo: {
         externalAdReply: {
-          title: "LUCKY-MD HOLY BIBLE",
+          title: "RAY-MD HOLY BIBLE",
           body: `We're reading: ${data.reference}`,
           mediaType: 1,
-          thumbnailUrl: "https://files.catbox.moe/7irwqn.jpeg", 
+          thumbnailUrl: "https://files.catbox.moe/42b1sn.png", 
           sourceUrl: conf.GURL,
           showAdAttribution: true, 
         },
@@ -115,7 +115,7 @@ ezra({
         externalAdReply: {
           title: "Error Fetching Bible Passage",
           body: "Please try again later.",
-          thumbnailUrl: "https://files.catbox.moe/7irwqn.jpeg", // Replace with a suitable thumbnail URL
+          thumbnailUrl: "https://files.catbox.moe/42b1sn.png", // Replace with a suitable thumbnail URL
           sourceUrl: conf.GURL,
           mediaType: 1,
           showAdAttribution: true,
@@ -125,7 +125,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "describe",
   aliases: ["dictionaries", "dict", "def"],
   reaction: '😁',
@@ -153,10 +153,10 @@ ezra({
         text: definitionMessage,
         contextInfo: {
           externalAdReply: {
-            title: "LUCKY-MD DICTIONARY",
+            title: "RAY-MD DICTIONARY",
             body: `Definition of ${term}`,
             mediaType: 1,
-            thumbnailUrl: "https://files.catbox.moe/7irwqn.jpeg", 
+            thumbnailUrl: "https://files.catbox.moe/42b1sn.png", 
             sourceUrl: conf.GURL,
             showAdAttribution: true, 
           },
@@ -172,7 +172,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "paircode",
   aliases: ["session", "qrcode"],
   reaction: '🚀',
@@ -204,7 +204,7 @@ ezra({
         text: pairingCode,
         contextInfo: {
           externalAdReply: {
-            title: "LUCKY-MD PAIR CODE",
+            title: "RAY-MD PAIR CODE",
             body: "Here is your pairing code:",
             mediaType: 1,
             thumbnailUrl: conf.URL, 
@@ -226,7 +226,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "elements",
   reaction: '📓',
   categorie: "new"
@@ -249,7 +249,7 @@ ezra({
     const thumb = data.image; // Assuming the API returns an 'image' property for the element thumbnail
 
     const formattedMessage = `
-*Lucky Md Element Information:*
+*Ray Md Element Information:*
 🚀 *Name:* ${data.name}
 🚀 *Symbol:* ${data.symbol}
 🚀 *Atomic Number:* ${data.atomic_number}
@@ -265,7 +265,7 @@ Regards ${conf.BOT} `;
       text: formattedMessage,
       contextInfo: {
         externalAdReply: {
-          title: "LUCKY-MD ELEMENT INFORMATION",
+          title: "RAY-MD ELEMENT INFORMATION",
           body: "Here is the information you requested:",
           mediaType: 1,
           thumbnailUrl: thumb,
@@ -281,7 +281,7 @@ Regards ${conf.BOT} `;
   }
 });
 
-ezra({
+ray({
   nomCom: "githubs",
   aliases: ["gits"],
   reaction: '💻',
@@ -291,7 +291,7 @@ ezra({
   const githubUsername = arg.join(" ");
 
   if (!githubUsername) {
-    return repondre("Give me a valid GitHub username like: github Fred1e");
+    return repondre("Give me a valid GitHub username like: github Shukrani-R");
   }
 
   try {
@@ -324,7 +324,7 @@ ezra({
       text: githubMessage,
       contextInfo: {
         externalAdReply: {
-          title: "LUCKY-MD GITHUB USER INFO",
+          title: "RAY-MD GITHUB USER INFO",
           body: `Information about ${data.login}`,
           mediaType: 1,
           thumbnailUrl: thumb,
@@ -340,7 +340,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "tempmaile",
   aliases: ['maile', 'tempe'],
   reaction: '📧',
