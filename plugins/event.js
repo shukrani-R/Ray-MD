@@ -1,8 +1,8 @@
-const { ezra } = require('../fredi/ezra');
-const { attribuerUnevaleur } = require('../luckydatabase/welcome');
+const { ray } = require('../shukrani/ray');
+const { attribuerUnevaleur } = require('../shukranidatabase/welcome');
 
 async function events(nomCom) {
-    ezra({
+    ray({
         nomCom: nomCom,
         categorie: 'Group'
     }, async (dest, zk, commandeOptions) => {
