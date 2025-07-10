@@ -1,8 +1,8 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 
 let antiTagActive = false; // State of the anti-tag feature
 
-ezra({
+ray({
   nomCom: "antitag",
   categorie: "General",
   reaction: "❤️"
