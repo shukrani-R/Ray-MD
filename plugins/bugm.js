@@ -1,6 +1,6 @@
 const util = require('util');
 const fs = require('fs-extra');
-const { ezra } = require(__dirname + "/../shukrani/ray");
+const { ray } = require(__dirname + "/../shukrani/ray");
 const { format } = require(__dirname + "/../shukrani/mesfonctions");
 const os = require("os");
 const moment = require("moment-timezone");
