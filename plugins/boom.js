@@ -1,9 +1,9 @@
-const {ezra} = require("../fredi/ezra");
+const {ray} = require("../shukrani/ray");
 const conf = require("../set");
 
 
 
-ezra(
+ray(
   {
     nomCom: 'boom',
     categorie: 'Mods',
