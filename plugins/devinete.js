@@ -1,4 +1,4 @@
-const { ezra } = require('../fredi/ezra');
+const { ray } = require('../shukrani/ray');
 
 // Set a riddle list with questions and answers
 const devinettes = [
@@ -96,7 +96,7 @@ const devinettes = [
   },
   ];
   
-ezra({ nomCom: "riddle", categorie: "Games" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "riddle", categorie: "Games" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre } = commandeOptions;
 
   // Choose a random riddle
