@@ -1,12 +1,12 @@
 
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const axios = require('axios');
 const ytSearch = require('yt-search');
 
 // Define the command with aliases
-ezra({
+ray({
   nomCom: "videodoc",
-  aliases: ["musicvideodoc", "ytmp4doc", "luckyvideodoc", "mp4doc"],
+  aliases: ["musicvideodoc", "ytmp4doc", "rayvideodoc", "mp4doc"],
   categorie: "Search",
   reaction: "📺"
 }, async (dest, zk, commandOptions) => {
@@ -74,7 +74,7 @@ ezra({
           title: videoDetails.title,
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
+          sourceUrl: 'https://whatsapp.com/channel/0029VbB16dt9hXEyw3bO1k0p',
           thumbnailUrl: firstVideo.thumbnail,
           renderLargerThumbnail: false,
           showAdAttribution: true,
