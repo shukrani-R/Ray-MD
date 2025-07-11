@@ -1,9 +1,9 @@
-const { ezra } = require('../fredi/ezra');
-const {ajouterUtilisateurAvecWarnCount , getWarnCountByJID , resetWarnCountByJID} = require('../luckydatabase/warn')
+const { ray } = require('../shukrani/ray');
+const {ajouterUtilisateurAvecWarnCount , getWarnCountByJID , resetWarnCountByJID} = require('../shukranidatabase/warn')
 const s = require("../set")
 
 
-ezra(
+ray(
     {
         nomCom : 'warn',
         categorie : 'Group'
