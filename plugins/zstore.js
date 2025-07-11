@@ -1,15 +1,15 @@
 
-const { ezra } = require('../fredi/ezra');
+const { ray } = require('../shukrani/ray');
 
-ezra({
+ray({
   nomCom: "happi",
-  categorie: "fledi-funs",
+  categorie: "ray-funs",
   reaction: "😂"
 }, async (dest, zk, commandeOptions) => {
   const { repondre, ms } = commandeOptions;
   
   try {
-    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *LUCKY HAPPY WE GO...* 🤦" });
+    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *RAY HAPPY WE GO...* 🤦" });
     const animations =  ['😃', '😄', '😁', '😊', '😎', '🥳', '😸', '😹', '🌞', '🌈', '😃', '😄', '😁', '😊', '😎', '🥳', '😸', '😹', '🌞', '🌈', '😃', '😄', '😁', '😊'];
     for (const animation of animations) {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -29,7 +29,7 @@ ezra({
     repondre("❌ *Error!* " + error.message);
   }
 });
-ezra({
+ray({
   nomCom: "heart",
   aliases: ["moyo", "hrt"],
   categorie: "fledi-fun",
@@ -38,7 +38,7 @@ ezra({
   const { repondre, ms } = commandeOptions;
   
   try {
-    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *LUCKY HEART WE GO...* 🤦" });
+    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *RAY HEART WE GO...* 🤦" });
     const animations =  ['💖', '💗', '💕', '❤️', '💛', '💚', '🫀', '💙', '💜', '🖤', '♥️', '🤍', '🤎', '💗', '💞', '💓', '💘', '💝', '♥️', '💟', '🫀', '❤️'];
     for (const animation of animations) {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -58,15 +58,15 @@ ezra({
     repondre("❌ *Error!* " + error.message);
   }
 });
-ezra({
+ray({
   nomCom: "angry",
-  categorie: "fledi-fun",
+  categorie: "ray-fun",
   reaction: "🥺"
 }, async (dest, zk, commandeOptions) => {
   const { repondre, ms } = commandeOptions;
   
   try {
-    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *LUCKY ANGRY HERE WE GO...* 🤦" });
+    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *RAY ANGRY HERE WE GO...* 🤦" });
     const animations =   ['😡', '😠', '🤬', '😤', '😾', '😡', '😠', '🤬', '😤', '😾'];
     for (const animation of animations) {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -86,16 +86,16 @@ ezra({
     repondre("❌ *Error!* " + error.message);
   }
 });
-ezra({
+ray({
   nomCom: "sad",
   aliases: ["heartbroken", "hrtbroken"],
-  categorie: "fledi-fun",
+  categorie: "ray-fun",
   reaction: "😒"
 }, async (dest, zk, commandeOptions) => {
   const { repondre, ms } = commandeOptions;
   
   try {
-    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *LUCKY SAD WE GO...* 🤦" });
+    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *RAY SAD WE GO...* 🤦" });
     const animations =  ['🥺', '😟', '😕', '😖', '😫', '🙁', '😩', '😥', '😓', '😪', '😢', '😔', '😞', '😭', '💔', '😭', '😿'];
     for (const animation of animations) {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -115,16 +115,16 @@ ezra({
     repondre("❌ *Error!* " + error.message);
   }
 });
-ezra({
+ray({
   nomCom: "shy",
   aliases: ["shyoff", "shyy"],
-  categorie: "fledi-fun",
+  categorie: "ray-fun",
   reaction: "🥂"
 }, async (dest, zk, commandeOptions) => {
   const { repondre, ms } = commandeOptions;
   
   try {
-    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *LUCKY SHY WE GO...* 🤦" });
+    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *RAY SHY WE GO...* 🤦" });
     const animations =  ['😳', '😊', '😶', '🙈', '🙊', '😳', '😊', '😶', '🙈', '🙊'];
     for (const animation of animations) {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -144,16 +144,16 @@ ezra({
     repondre("❌ *Error!* " + error.message);
   }
 });
-ezra({
+ray({
   nomCom: "moon",
   aliases: ["mon", "mwezi"],
-  categorie: "fledi-fun",
+  categorie: "ray-fun",
   reaction: "🌚"
 }, async (dest, zk, commandeOptions) => {
   const { repondre, ms } = commandeOptions;
   
   try {
-    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *LUCKY MOON WE GO...* 🤦" });
+    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *RAY MOON WE GO...* 🤦" });
     const animations =   ['🌗', '🌘', '🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌑', '🌒', '🌓', '🌔', '🌕', "🌚🌝"];
     for (const animation of animations) {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -174,15 +174,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "nikal",
-  categorie: "fledi-fun",
+  categorie: "ray-fun",
   reaction: "⁉️"
 }, async (dest, zk, commandeOptions) => {
   const { repondre, ms } = commandeOptions;
   
   try {
-    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *LUCKY NIKAL WE GO...* 🤦" });
+    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *RAY NIKAL WE GO...* 🤦" });
     const animations = ["   ⣠⣶⡾⠏⠉⠙⠳⢦⡀   ⢠⠞⠉⠙⠲⡀ \n  ⣴⠿⠏          ⢳⡀ ⡏         ⢷\n⢠⣟⣋⡀⢀⣀⣀⡀ ⣀⡀   ⣧ ⢸          ⡇\n⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲     ⣿  ⣸   Nikal   ⡇\n ⣟⣿⡭     ⢱        ⣿  ⢹           ⡇\n  ⠙⢿⣯⠄   __        ⡿  ⡇        ⡼\n   ⠹⣶⠆     ⡴⠃    ⠘⠤⣄⣠⠞ \n    ⢸⣷⡦⢤⡤⢤⣞⣁          \n ⢀⣤⣴⣿⣏⠁  ⠸⣏⢯⣷⣖⣦⡀      \n⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿      \n⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏    ⣄⢸      `", "   ⣠⣶⡾⠏⠉⠙⠳⢦⡀   ⢠⠞⠉⠙⠲⡀ \n  ⣴⠿⠏          ⢳⡀ ⡏         ⢷\n⢠⣟⣋⡀⢀⣀⣀⡀ ⣀⡀   ⣧ ⢸          ⡇\n⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲     ⣿  ⣸   Lavde   ⡇\n ⣟⣿⡭     ⢱        ⣿  ⢹           ⡇\n  ⠙⢿⣯⠄  |__|     ⡿  ⡇        ⡼\n   ⠹⣶⠆     ⡴⠃    ⠘⠤⣄⣠⠞ \n    ⢸⣷⡦⢤⡤⢤⣞⣁          \n ⢀⣤⣴⣿⣏⠁  ⠸⣏⢯⣷⣖⣦⡀      \n⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿      \n⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏    ⣄⢸      `", "   ⣠⣶⡾⠏⠉⠙⠳⢦⡀   ⢠⠞⠉⠙⠲⡀ \n  ⣴⠿⠏           ⢳⡀ ⡏         ⢷\n⢠⣟⣋⡀⢀⣀⣀⡀ ⣀⡀   ⣧ ⢸          ⡇\n⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲    ⣿  ⣸   Pehli   ⡇\n ⣟⣿⡭     ⢱       ⣿  ⢹            ⡇\n  ⠙⢿⣯⠄  (P)       ⡿  ⡇        ⡼\n   ⠹⣶⠆     ⡴⠃    ⠘⠤⣄⣠⠞ \n    ⢸⣷⡦⢤⡤⢤⣞⣁          \n ⢀⣤⣴⣿⣏⠁  ⠸⣏⢯⣷⣖⣦⡀      \n⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿      \n⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏    ⣄⢸      `", "   ⣠⣶⡾⠏⠉⠙⠳⢦⡀   ⢠⠞⠉⠙⠲⡀ \n  ⣴⠿⠏           ⢳⡀ ⡏         ⢷\n⢠⣟⣋⡀⢀⣀⣀⡀ ⣀⡀   ⣧ ⢸          ⡇\n⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲    ⣿  ⣸  Fursat  ⡇\n ⣟⣿⡭     ⢱         ⣿  ⢹           ⡇\n  ⠙⢿⣯⠄   __        ⡿  ⡇        ⡼\n   ⠹⣶⠆     ⡴⠃    ⠘⠤⣄⣠⠞ \n    ⢸⣷⡦⢤⡤⢤⣞⣁          \n ⢀⣤⣴⣿⣏⠁  ⠸⣏⢯⣷⣖⣦⡀      \n⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿      \n⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏    ⣄⢸      `", "   ⣠⣶⡾⠏⠉⠙⠳⢦⡀   ⢠⠞⠉⠙⠲⡀ \n  ⣴⠿⠏           ⢳⡀ ⡏         ⢷\n⢠⣟⣋⡀⢀⣀⣀⡀ ⣀⡀   ⣧ ⢸          ⡇\n⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲    ⣿  ⣸  Meeee   ⡇\n ⣟⣿⡭     ⢱         ⣿  ⢹           ⡇\n  ⠙⢿⣯⠄  |__|      ⡿  ⡇        ⡼\n   ⠹⣶⠆     ⡴⠃    ⠘⠤⣄⣠⠞ \n    ⢸⣷⡦⢤⡤⢤⣞⣁          \n ⢀⣤⣴⣿⣏⠁  ⠸⣏⢯⣷⣖⣦⡀      \n⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿      \n⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏    ⣄⢸      `", "   ⣠⣶⡾⠏⠉⠙⠳⢦⡀   ⢠⠞⠉⠙⠲⡀ \n  ⣴⠿⠏           ⢳⡀ ⡏         ⢷\n⢠⣟⣋⡀⢀⣀⣀⡀ ⣀⡀   ⣧ ⢸           ⡇\n⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲   ⣿  ⣸   Nikal   ⡇\n ⣟⣿⡭     ⢱        ⣿  ⢹            ⡇\n  ⠙⢿⣯⠄  lodu     ⡿  ⡇       ⡼\n   ⠹⣶⠆       ⡴⠃    ⠘⠤⣄⣠⠞ \n    ⢸⣷⡦⢤⡤⢤⣞⣁          \n ⢀⣤⣴⣿⣏⠁  ⠸⣏⢯⣷⣖⣦⡀      \n⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿      \n⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏    ⣄⢸ "];
 
     for (const animation of animations) {
@@ -204,15 +204,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "hand",
-  categorie: "fledi-fun",
+  categorie: "ray-fun",
   reaction: "👊"
 }, async (dest, zk, commandeOptions) => {
   const { repondre, ms } = commandeOptions;
   
   try {
-    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *LUCKY HAND WE GO...* 🤦" });
+    const sentMessage = await zk.sendMessage(dest, { text: "🫣 *RAY HAND WE GO...* 🤦" });
     const animations = [
       '8✊️===D', '8=✊️==D', '8==✊️=D', '8===✊️D', '8==✊️=D', '8=✊️==D', 
       '8✊️===D', '8=✊️==D', '8==✊️=D', '8===✊️D', '8==✊️=D', '8=✊️==D', 
