@@ -1,16 +1,16 @@
 const util = require('util');
 const fs = require('fs-extra');
-const { ezra } = require(__dirname + "/../fredi/ezra");
-const { format } = require(__dirname + "/../fredi/mesfonctions");
+const { ray } = require(__dirname + "/../shukrani/ray");
+const { format } = require(__dirname + "/../shukrani/mesfonctions");
 const os = require("os");
 const moment = require("moment-timezone");
 const s = require(__dirname + "/../set");
 const more = String.fromCharCode(8206)
 const readmore = more.repeat(4001)
 
-ezra({ nomCom: "sc", categorie: "My Contact" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "sc", categorie: "My Contact" }, async (dest, zk, commandeOptions) => {
     let { ms, repondre ,prefixe,nomAuteurMessage,mybotpic} = commandeOptions;
-    let { cm } = require(__dirname + "/../fredi//ezra");
+    let { cm } = require(__dirname + "/../shukrani//ray");
     var coms = {};
     var mode = "public";
     
@@ -40,23 +40,23 @@ const date = moment().format('DD/MM/YYYY');
 ❂━━━➳════⊷════➳━━━━❂
 
 *GITHUB LINK*
-> https://github.com/Fred1e
+> https://github.com/shukrani-R
 
-*TELEGRAM GROUP*
-> https://t.me/+u3zlb5y6OfxhOTdk
+*WHATSAPP GROUP*
+> https://chat.whatsapp.com/JsfyU85BsCZ9nYDF2xig2u?mode=r_c
 
 *FOR DEVELOPER T.ME*
-> https://t.me/freditech
+> https://t.me/ray
 
 *WHATSAPP CHANNEL*
-> https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f 
+> https://whatsapp.com/channel/0029VbB16dt9hXEyw3bO1k0p
 
 *FOR MORE INFO TAP ON THE LINK BELOW*
-> https://github.com/Fred1e/LUCKY_MD
+> https://github.com/shukrani-R/Ray-MD
 ╭──━━━━═════════━━━━⦿
 ┃ ❂━━━════➳════━━━━❂
 ┃▓▒⁠⁠⁠⁠ *RAM* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-┃▓▒ *DEV* : *LUCKY BOT*
+┃▓▒ *DEV* : *RAY BOT*
 ┃ ❂━━━════➳════━━━━❂
 ⁠⁠⁠⁠╰──━━━━═════════━━━━⦿ 
   `;
@@ -64,7 +64,7 @@ const date = moment().format('DD/MM/YYYY');
 let menuMsg = `
      ╭──━━━━══⊷══━━━━⦿
      ┃ ❂━━━━━━━━━━━━❂
-     ┃▓ LUCKY MD
+     ┃▓ RAY MD
      ┃ ❂━━━━━━━━━━━━❂
      ╰──━━━━══⊷══━━━━⦿
 ❂━━━━═════⊷═════━━━━❂
@@ -75,7 +75,7 @@ let menuMsg = `
 
    if (lien.match(/\.(mp4|gif)$/i)) {
     try {
-        zk.sendMessage(dest, { video: { url: lien }, caption:infoMsg + menuMsg, footer: "I am *Lucky Md*, Developed By Fredie Sir" , gifPlayback : true }, { quoted: ms });
+        zk.sendMessage(dest, { video: { url: lien }, caption:infoMsg + menuMsg, footer: "I am *Ray Md*, Developed By shukraniray Sir" , gifPlayback : true }, { quoted: ms });
     }
     catch (e) {
         console.log("🥵🥵 Menu erreur " + e);
@@ -85,7 +85,7 @@ let menuMsg = `
 // Vérification pour .jpeg ou .png
 else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
     try {
-        zk.sendMessage(dest, { image: { url: lien }, caption:infoMsg + menuMsg, footer: "I am *LUCKY MD V7*, Developed By Fredie Sir" }, { quoted: ms });
+        zk.sendMessage(dest, { image: { url: lien }, caption:infoMsg + menuMsg, footer: "I am *RAY MD V7*, Developed By Fredie Sir" }, { quoted: ms });
     }
     catch (e) {
         console.log("🥵🥵 Menu erreur " + e);
