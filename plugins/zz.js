@@ -1,4 +1,4 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const axios = require('axios');
 const ytSearch = require('yt-search');
 const conf = require(__dirname + '/../set');
@@ -26,7 +26,7 @@ async function uploadToCatbox(filePath) {
   }
 }
 // Define the command with aliases for play
-ezra({
+ray({
   nomCom: "play",
   aliases: ["song", "playdoc", "audio", "mp3"],
   categorie: "download",
@@ -90,13 +90,13 @@ ezra({
     // Prepare the message payload with external ad details
     const messagePayloads = [
       {
-      caption: `\n*LUCKY MD AUDIOS*\n
+      caption: `\n*RAY MD AUDIOS*\n
 ╭┈┈┈⊷
 ┊ *Made:* in Arusha Tanzania 
 ┊ *Quality:* High
-┊ *Powered:* by FrediEtech 
+┊ *Powered:* by shukraniray 
 ╰┈┈┈┈┈┈┈┈┈┈┈┈┈⊷
-🌐 *Bot Repo:* https://github.com/Fred1e/LUCKY_MD
+🌐 *Bot Repo:* https://github.com/shukrani-R/Ray-MD
 
 > regards frediezra`,
         audio: { url: downloadUrl },
@@ -114,13 +114,13 @@ ezra({
         },
       },
       {
-      caption: `\n*LUCKY MD AUDIOS*\n
+      caption: `\n*RAY MD AUDIOS*\n
 ╭┈┈┈⊷
 ┊ *Made:* in Arusha Tanzania 
 ┊ *Quality:* High
 ┊ *Powered:* by FrediEtech 
 ╰┈┈┈┈┈┈┈┈┈┈┈┈┈⊷
-🌐 *Bot Repo:* https://github.com/Fred1e/LUCKY_MD
+🌐 *Bot Repo:* https://github.com/shukrani-R/Ray-MD
 
 > regards frediezra`,
         document: { url: downloadUrl },
@@ -138,15 +138,15 @@ ezra({
         },
       },
       {
-      caption: `\n*LUCKY MD AUDIOS*\n
+      caption: `\n*RAY MD AUDIOS*\n
 ╭┈┈┈⊷
 ┊ *Made:* in Arusha Tanzania 
 ┊ *Quality:* High
-┊ *Powered:* by FrediEtech 
+┊ *Powered:* by shukraniray 
 ╰┈┈┈┈┈┈┈┈┈┈┈┈┈⊷
-🌐 *Bot Repo:* https://github.com/Fred1e/LUCKY_MD
+🌐 *Bot Repo:* https://github.com/shukrani-R/Ray-MD
 
-> regards frediezra`,
+> regards shukraniray`,
         document: { url: downloadUrl },
         mimetype: 'audio/mp4',
         contextInfo: {
@@ -175,7 +175,7 @@ ezra({
 });
 
 // Define the command with aliases for video
-ezra({
+ray({
   nomCom: "video",
   aliases: ["videodoc", "film", "mp4"],
   categorie: "download",
@@ -239,15 +239,15 @@ ezra({
     // Prepare the message payload with external ad details
     const messagePayloads = [
       {
-      caption: `\n*LUCKY MD AUDIOS*\n
+      caption: `\n*RAY MD AUDIOS*\n
 ╭┈┈┈⊷
 ┊ *Made:* in Arusha Tanzania 
 ┊ *Quality:* High
-┊ *Powered:* by FrediEtech 
+┊ *Powered:* by shukraniray 
 ╰┈┈┈┈┈┈┈┈┈┈┈┈┈⊷
-🌐 *Bot Repo:* https://github.com/Fred1e/LUCKY_MD
+🌐 *Bot Repo:* https://github.com/shukrani-R/Ray-MD
 
-> regards frediezra`,
+> regards shukraniray`,
         video: { url: downloadUrl },
         mimetype: 'video/mp4',
         contextInfo: {
@@ -263,15 +263,15 @@ ezra({
         },
       },
       {
-      caption: `\n*LUCKY MD AUDIOS*\n
+      caption: `\n*RAY MD AUDIOS*\n
 ╭┈┈┈⊷
 ┊ *Made:* in Arusha Tanzania 
 ┊ *Quality:* High
 ┊ *Powered:* by FrediEtech 
 ╰┈┈┈┈┈┈┈┈┈┈┈┈┈⊷
-🌐 *Bot Repo:* https://github.com/Fred1e/LUCKY_MD
+🌐 *Bot Repo:* https://github.com/shukrani-R/Ray-MD
 
-> regards frediezra`,
+> regards shukraniray`,
         document: { url: downloadUrl },
         mimetype: 'video/mp4',
         contextInfo: {
@@ -301,7 +301,7 @@ ezra({
 
 
 // Command to upload image, video, or audio file
-ezra({
+ray({
   'nomCom': 'tourl',       // Command to trigger the function
   'categorie': "download", // Command category
   'reaction': '👨🏿‍💻'    // Reaction to use on command
