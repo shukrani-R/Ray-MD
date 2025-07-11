@@ -1,4 +1,4 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const axios = require('axios');
 
 //--------
@@ -32,7 +32,7 @@ async function githubstalk(user) {
     });
 }
 
-ezra(
+ray(
   {
     nomCom: 'github',
     alias: ['githubstalk'],
