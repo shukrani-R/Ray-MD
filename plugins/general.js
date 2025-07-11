@@ -1,8 +1,8 @@
-const { ezra } = require("../fredi/ezra");
-const {getAllSudoNumbers,isSudoTableNotEmpty} = require("../luckydatabase/sudo")
+const { ray } = require("../shukrani/ray");
+const {getAllSudoNumbers,isSudoTableNotEmpty} = require("../shukranidatabase/sudo")
 const conf = require("../set");
 
-ezra({ nomCom: "owner", categorie: "luckymd-devs", reaction: "🚜" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "owner", categorie: "plugins-devs", reaction: "🚜" }, async (dest, zk, commandeOptions) => {
     const { ms , mybotpic } = commandeOptions;
     
   const thsudo = await isSudoTableNotEmpty()
@@ -51,16 +51,16 @@ ezra({ nomCom: "owner", categorie: "luckymd-devs", reaction: "🚜" }, async (de
   }
 });
 
-ezra({ nomCom: "dev", categorie: "luckymd-devs", reaction: "🚜" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "dev", categorie: "plugins-devs", reaction: "🚜" }, async (dest, zk, commandeOptions) => {
     const { ms, mybotpic } = commandeOptions;
 
     const devs = [
-      { nom: "frediezra", numero: "255620814108" },
-      { nom: "freditech", numero: "255752593977" },
+      { nom: "ray", numero: "255773350309" },
+      { nom: "shukranie", numero: "255615184672" },
       // Ajoute d'autres développeurs ici avec leur nom et numéro
     ];
 
-    let message = "Uuhh Hellow This Is Lucky Md Dev Contacts Check✅:\n\n";
+    let message = "Uuhh Hellow This Is Ray Md Dev Contacts Check✅:\n\n";
     for (const dev of devs) {
       message += `----------------\n• ${dev.nom} : https://wa.me/${dev.numero}\n`;
     }
@@ -91,24 +91,24 @@ else {
 }
 });
 
-ezra({ nomCom: "support", categorie: "luckymd-devs" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "support", categorie: "plugins-devs" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, auteurMessage, } = commandeOptions; 
  
   repondre("look on pm sir ")
-  await zsendMessage(auteurMessage,{text :`https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f`},{quoted :ms})
+  await zsendMessage(auteurMessage,{text :`https://whatsapp.com/channel/0029VbB16dt9hXEyw3bO1k0p`},{quoted :ms})
 
 })
 
-ezra({ nomCom: "developer", categorie: "General", reaction: "🚜" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "developer", categorie: "General", reaction: "🚜" }, async (dest, zk, commandeOptions) => {
     const { ms, mybotpic } = commandeOptions;
 
     const devs = [
-      { nom: "frediezra", numero: "255752593977" },
-      { nom: "fredi tech", numero: "255620814108" },
+      { nom: "ray", numero: "255773350309" },
+      { nom: "shukrani", numero: "255615184672" },
       // Ajoute d'autres développeurs ici avec leur nom et numéro
     ];
 
-    let message = " Hello👋 *Welcome to Lucky md * here is the developer numbers:\n\n";
+    let message = " Hello👋 *Welcome to Ray md * here is the developer numbers:\n\n";
     for (const dev of devs) {
       message += `----------------\n• ${dev.nom} : https://wa.me/${dev.numero}\n`;
     }
