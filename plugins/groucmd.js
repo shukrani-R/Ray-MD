@@ -2,8 +2,8 @@ const {
   exec
 } = require("child_process");
 const {
-  ezra
-} = require("../fredi/ezra");
+  ray
+} = require("../shukrani/ray");
 const {
   Sticker,
   StickerTypes
@@ -12,11 +12,11 @@ const {
   ajouterOuMettreAJourJid,
   mettreAJourAction,
   verifierEtatJid
-} = require('../luckydatabase/antilien');
+} = require('../shukranidatabase/antilien');
 const {
   atbajouterOuMettreAJourJid,
   atbverifierEtatJid
-} = require('../luckydatabase/antibot');
+} = require('../shukranidatabase/antibot');
 const {
   search,
   download
@@ -30,7 +30,7 @@ const {
   getBinaryNodeChild,
   getBinaryNodeChildren
 } = require("@whiskeysockets/baileys")['default'];
-  ezra({
+  ray({
   'nomCom': 'add',
   'categorie': "Group",
   'reaction': '🪄'
@@ -152,7 +152,7 @@ const {
     const _0x19afe6 = _0x5488b4.attrs.expiration;
     const _0x794f96 = "I cannot add @" + _0x4766bc.split('@')[0x0] + " due to privacy settings, Let me send an invite link instead.";
     await _0x132613(_0x794f96);
-    let _0x599fb8 = "You have been invited to join the group " + _0x1fd727.subject + ":\n\nhttps://chat.whatsapp.com/" + _0x36611d + "\n\n*POWERRD BY LUCKY_MD*";
+    let _0x599fb8 = "You have been invited to join the group " + _0x1fd727.subject + ":\n\nhttps://chat.whatsapp.com/" + _0x36611d + "\n\n*POWERRD BY RAY_MD*";
     await _0x4375b2.sendMessage(_0x4766bc, {
       'image': {
         'url': _0x3f6faa
@@ -164,7 +164,7 @@ const {
   }
 });
 
-ezra({
+ray({
   'nomCom': "broadcast",
   'aliases': ['bc', "cast"],
   'reaction': '📑',
@@ -189,9 +189,9 @@ ezra({
   let _0x52c320 = await _0x4cdb8c.groupFetchAllParticipating();
   let _0x254221 = Object.entries(_0x52c320).slice(0x0).map(_0x35bfa1 => _0x35bfa1[0x1]);
   let _0x115598 = _0x254221.map(_0x6b0f9 => _0x6b0f9.id);
-  await _0xb269b7("*LUCKY_MD is sending this message to all groups you are in*...");
+  await _0xb269b7("*RAY_MD is sending this message to all groups you are in*...");
   for (let _0x398282 of _0x115598) {
-    let _0x25a35f = "‼️‼️LUCKY_𝐌𝐃 𝐁𝐑𝐎𝐀𝐃𝐂𝐀𝐒𝐓️‼️️‼️\n\n❗*message* : " + _0x1360fc + "\n\n️‼️ *Author*: " + _0x271224;
+    let _0x25a35f = "‼️‼️RAY_𝐌𝐃 𝐁𝐑𝐎𝐀𝐃𝐂𝐀𝐒𝐓️‼️️‼️\n\n❗*message* : " + _0x1360fc + "\n\n️‼️ *Author*: " + _0x271224;
     await _0x4cdb8c.sendMessage(_0x398282, {
       'image': {
         'url': "https://i.imgur.com/hRP6xPl.jpeg"
@@ -201,7 +201,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   'nomCom': "disap-off",
   'categorie': "Group",
   'reaction': '😇'
@@ -231,7 +231,7 @@ ezra({
   _0x331c17("Dissapearing messages successfully turned off!");
 });
 
-ezra({
+ray({
   'nomCom': "disap",
   'categorie': "Group",
   'reaction': '😇'
@@ -260,7 +260,7 @@ ezra({
   _0x59b8c1("*Do you want to turn on disappearing messages?*\n\nIf yes type _*disap1* for messages to disappear after 1 day._\n_or *disap7* for messages to disappear after 7 days._\n_or *disap90* for messages to disappear after 90 days._\n\n To turn in off, type *disap-off*");
 });
 
-ezra({
+ray({
   'nomCom': "req",
   'categorie': 'Group',
   'reaction': '😇'
@@ -303,7 +303,7 @@ ezra({
   _0x31754e(_0x4143c3);
 });
 
-ezra({
+ray({
   'nomCom': 'disap90',
   'categorie': "Group",
   'reaction': '😇'
@@ -333,7 +333,7 @@ ezra({
   _0x58e845("Dissapearing messages successfully turned on for 90 days!");
 });
 
-ezra({
+ray({
   'nomCom': "reject",
   'aliases': ["rejectall", "rej", "reject-all"],
   'categorie': "Group",
@@ -363,7 +363,7 @@ ezra({
   _0x241d6c("All pending join requests have been rejected.");
 });
 
-ezra({
+ray({
   'nomCom': 'disap7',
   'categorie': "Group",
   'reaction': '😇'
@@ -393,7 +393,7 @@ ezra({
   _0xdb7461("Dissapearing messages successfully turned on for 7 days!");
 });
 
-ezra({
+ray({
   'nomCom': "disap1",
   'categorie': "Group",
   'reaction': '🪄'
@@ -423,7 +423,7 @@ ezra({
   _0x5c9d47("Dissapearing messages successfully turned on for 24 hours");
 });
 
-ezra({
+ray({
   'nomCom': 'approve',
   'aliases': ["approve-all", "accept"],
   'categorie': "Group",
@@ -450,10 +450,10 @@ ezra({
     const _0x9a395b = await _0x2c3517.groupRequestParticipantsUpdate(_0x43946b, [_0x5dcd51.jid], 'approve');
     console.log(_0x9a395b);
   }
-  _0x298913("All pending participants have been approved to join by Lucky md.");
+  _0x298913("All pending participants have been approved to join by Ray md.");
 });
 
-ezra({
+ray({
   'nomCom': "vcf",
   'aliases': ["savecontact", "savecontacts"],
   'categorie': "Group",
@@ -480,7 +480,7 @@ ezra({
     let _0x4a6ecd = '';
     for (let _0x269fcd of _0x267c2d) {
       let _0x23a8f8 = _0x269fcd.id.split('@')[0x0];
-      let _0x5838c2 = _0x269fcd.name || _0x269fcd.notify || "[LUCKY] +" + _0x23a8f8;
+      let _0x5838c2 = _0x269fcd.name || _0x269fcd.notify || "[RAY] +" + _0x23a8f8;
       _0x4a6ecd += "BEGIN:VCARD\nVERSION:3.0\nFN:" + _0x5838c2 + "\nTEL;type=CELL;type=VOICE;waid=" + _0x23a8f8 + ':+' + _0x23a8f8 + "\nEND:VCARD\n";
     }
     await _0x2e5b52("A moment, *LUCKY-MD* is compiling " + _0x267c2d.length + " contacts into a vcf...");
@@ -489,7 +489,7 @@ ezra({
       'document': _0x511dab.readFileSync("./contacts.vcf"),
       'mimetype': "text/vcard",
       'fileName': _0x38463f.subject + '.Vcf',
-      'caption': "VCF for " + _0x38463f.subject + "\nTotal Contacts: " + _0x267c2d.length + "\n*KEEP USING LUCKY_MD*"
+      'caption': "VCF for " + _0x38463f.subject + "\nTotal Contacts: " + _0x267c2d.length + "\n*KEEP USING RAY_MD*"
     }, {
       'ephemeralExpiration': 0x15180,
       'quoted': _0x48a83b
@@ -501,7 +501,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   'nomCom': 'invite',
   'aliases': ["link"],
   'categorie': 'Group',
@@ -528,7 +528,7 @@ ezra({
   }
 });
 
-ezra({  
+ray({  
   'nomCom': 'revoke',
   'categorie': 'Group'
 }, async (_0x5cf31f, _0x499fc5, _0x27df3d) => {
@@ -551,7 +551,7 @@ ezra({
   _0x1e4f60("group link revoked.");
 });
 
-ezra({
+ray({
   'nomCom': "antiword",
   'categorie': 'Group',
   'reaction': '🔗'
@@ -611,7 +611,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   'nomCom': "antilink-all",
   'categorie': "Group",
   'reaction': '🕯️'
@@ -659,7 +659,7 @@ ezra({
               _0x71952("The only actions available are `warn`, `remove`, and `delete`.");
             }
           } else {
-            _0x71952("Type `antilink-all on` to activate the antilink-all feature\nor `antilink-all off` to deactivate the antilink-all feature\nor `antilink-all action/remove` to directly remove the link without notice\nor `antilink-all action/warn` to give warnings\nor `antilink-all action/delete` to remove the link without any sanctions\n\nPlease note that by default, the antilink-all feature is set to delete.\n\n*KEEP USING LUCKY_MD*");
+            _0x71952("Type `antilink-all on` to activate the antilink-all feature\nor `antilink-all off` to deactivate the antilink-all feature\nor `antilink-all action/remove` to directly remove the link without notice\nor `antilink-all action/warn` to give warnings\nor `antilink-all action/delete` to remove the link without any sanctions\n\nPlease note that by default, the antilink-all feature is set to delete.\n\n*KEEP USING RAY_MD*");
           }
         }
       }
