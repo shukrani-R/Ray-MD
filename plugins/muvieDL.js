@@ -1,9 +1,9 @@
-const { ezra } = require("../fredi/ezra");
-const { getJson } = require("../fredi/utils");
+const { ray } = require("../shukrani/ray");
+const { getJson } = require("../shukrani/utils");
 
-ezra({
+ray({
   nomCom: "movie",
-  categorie: "luckymd-search",
+  categorie: "plugins-search",
   reaction: "🎥"
 }, async (origineMessage, zk, commandeOptions) => {
   const { repondre, arg } = commandeOptions;
