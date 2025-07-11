@@ -1,4 +1,4 @@
-const {ezra} = require("../fredi/ezra");
+const {ray} = require("../shukrani/ray");
 const fs = require('fs-extra');
 const conf = require('../set');
 const { default: axios } = require("axios");
@@ -6,7 +6,7 @@ const ffmpeg = require("fluent-ffmpeg");
 const gis = require('g-i-s');
 
 
-ezra({
+ray({
   'nomCom': 'apk',
   'aliases': ['app', 'playstore'],
   'reaction': '🉑',
@@ -46,7 +46,7 @@ ezra({
         document: { url: appDetails.BK9.dllink },
         fileName: `${appDetails.BK9.name}.apk`,
         mimetype: "application/vnd.android.package-archive",
-        caption: "✧⁠LUCKY_MD✧"
+        caption: "✧RAY_MD✧"
       },
       { quoted: ms }
     );
