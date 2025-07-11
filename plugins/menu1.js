@@ -1,16 +1,16 @@
 const util = require('util');
 const fs = require('fs-extra');
-const { ezra } = require(__dirname + "/../fredi/ezra");
-const { format } = require(__dirname + "/../fredi/mesfonctions");
+const { ray } = require(__dirname + "/../shukrani/ray");
+const { format } = require(__dirname + "/../shukrani/mesfonctions");
 const os = require("os");
 const moment = require("moment-timezone");
 const s = require(__dirname + "/../set");
 const more = String.fromCharCode(8206);
 const readmore = more.repeat(4001);
 
-ezra({ nomCom: "menu1", categorie: "Menu" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "menu1", categorie: "Menu" }, async (dest, zk, commandeOptions) => {
     let { ms, repondre, prefixe, nomAuteurMessage, mybotpic } = commandeOptions;
-    let { cm } = require(__dirname + "/../fredi/ezra");
+    let { cm } = require(__dirname + "/../shukrani/ray");
     let coms = {};
     let mode = "public";
 
@@ -71,10 +71,10 @@ ezra({ nomCom: "menu1", categorie: "Menu" }, async (dest, zk, commandeOptions) =
             contextInfo: {
                 mentionedJid: [senderName],
                 externalAdReply: {
-                    title: "LUCKY MD MENU LIST",
+                    title: "RAY MD MENU LIST",
                     body: "Dont worry bro I have more tap to follow",
-                    thumbnailUrl: "https://files.catbox.moe/idb19j.jpeg",
-                    sourceUrl: "https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f",
+                    thumbnailUrl: "https://files.catbox.moe/42b1sn.png",
+                    sourceUrl: "https://github.com/shukrani-R/Ray-MD.git",
                     mediaType: 1,
                     renderLargerThumbnail: true
                 }
