@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { ezra } = require("../fredi/ezra");
+const { ezra } = require("../shukrani/ray");
 const conf = require(__dirname + '/../set');
 
 // Football Data API URL and your API key
@@ -22,7 +22,7 @@ const fetchFootballData = async (url) => {
 };
 
 /** ✅ liga portugal standings */
-ezra({
+ray({
   nomCom: "liga_portugal_table",
   categorie: "football live",
   reaction: "⚽"
@@ -47,7 +47,7 @@ ezra({
 });
 
 /** ✅ liga portugal matchday */
-ezra({
+ray({
   nomCom: "liga_portugal_matchday",
   categorie: "football live",
   reaction: "📅"
@@ -72,7 +72,7 @@ ezra({
 });
 
 /** ✅ liga portugal top scorers */
-ezra({
+ray({
   nomCom: "liga_portugal_top_scorer",
   categorie: "football live",
   reaction: "⚽"
@@ -97,7 +97,7 @@ ezra({
 });
 
 /** ✅ liga portugal top assists */
-ezra({
+ray({
   nomCom: "liga_portugal_top_assist",
   categorie: "football live",
   reaction: "🎯"
@@ -122,7 +122,7 @@ ezra({
 });
 
 /** ✅ liga portugal news */
-ezra({
+ray({
   nomCom: "liga_portugal_news",
   categorie: "football live",
   reaction: "📰"
@@ -149,7 +149,7 @@ ezra({
 });
 
 /** ✅ liga portugal highlights (You can integrate video highlight API) */
-ezra({
+ray({
   nomCom: "liga_portugal_highlights",
   categorie: "football live",
   reaction: "📺"
