@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { ray } = require("../ray");
+const { ray } = require("../shukrani/ray");
 
 const apiKey = '7b6507c792f74a2b9db41cfc8fd8cf05';
 const apiUrl = 'https://api.football-data.org/v4';
