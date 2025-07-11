@@ -1,5 +1,6 @@
 const axios = require("axios");
-const { ray } = require("../shukrani/ray");
+const conf = require(__dirname + "/../set");
+const { ray } = require(__dirname + "/../shukrani/ray");
 
 const apiKey = '7b6507c792f74a2b9db41cfc8fd8cf05';
 const apiUrl = 'https://api.football-data.org/v4';
@@ -7,10 +8,10 @@ const apiUrl = 'https://api.football-data.org/v4';
 const leagueCodes = {
   laliga: "PD",
   bundesliga: "BL1",
-  ligaportugal: "PPL",
-  premierleague: "PL",
-  seriea: "SA",
   ligue1: "FL1",
+  seriea: "SA",
+  premierleague: "PL",
+  ligaportugal: "PPL",
   champions: "CL"
 };
 
@@ -20,8 +21,8 @@ const fetchFootballData = async (url) => {
       headers: { 'X-Auth-Token': apiKey }
     });
     return response.data;
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
     return null;
   }
 };
@@ -34,10 +35,9 @@ ray({
   const { repondre, msg } = commandOptions;
   const commandText = msg.body.toLowerCase();
 
-  // Example: laliganextmatch => laliga
   const leagueName = Object.keys(leagueCodes).find(key => commandText.includes(key));
   if (!leagueName) {
-    return repondre("⚠️ Unknown league name. Example: laliganextmatch, bundesliganextmatch.");
+    return repondre("⚠️ Unknown league. Example: laliganextmatch, bundesliganextmatch");
   }
 
   const code = leagueCodes[leagueName];
@@ -48,7 +48,7 @@ ray({
     return repondre("❌ Couldn't fetch upcoming matches.");
   }
 
-  const upcoming = data.matches.slice(0, 10); // Only show 10 upcoming matches
+  const upcoming = data.matches.slice(0, 10);
   let msgText = `📅 *Upcoming Matches - ${leagueName.toUpperCase()}*\n\n`;
 
   upcoming.forEach(match => {
