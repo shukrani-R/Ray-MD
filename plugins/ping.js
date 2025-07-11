@@ -1,10 +1,10 @@
 const {
-  ezra
-} = require("./../fredi/ezra");
+  ray
+} = require("./../shukrani/ray");
 const {
   format,
   runtime
-} = require('../fredi/mesfonctions');
+} = require('../shukrani/mesfonctions');
 const os = require('os');
 const speed = require('performance-now');
 const {
@@ -12,7 +12,7 @@ const {
 } = require('perf_hooks');
 const conf = require('../set');
 
-ezra(
+ray(
   {
     nomCom: 'ping1',
     categorie: 'General',
@@ -44,7 +44,7 @@ ezra(
   }
 )
 
-ezra(
+ray(
   {
     nomCom: 'desc',
     reaction: 'ℹ',
@@ -121,7 +121,7 @@ _CPU Core(s) Usage (${cpus.length} Core CPU)_
   }
 );
 
-ezra(
+ray(
   {
     nomCom: 'runtime',
     reaction: '🚨',
