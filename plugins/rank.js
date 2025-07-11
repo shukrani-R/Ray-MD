@@ -1,5 +1,5 @@
-const {ezra} = require("../fredi/ezra");
-const {getMessagesAndXPByJID,getBottom10Users} = require("../luckydatabase/level");
+const {ray} = require("../shukrani/ray");
+const {getMessagesAndXPByJID,getBottom10Users} = require("../shukranidatabase/level");
 
 
 function get_level_exp(xp) {
@@ -81,7 +81,7 @@ module.exports = {
    get_level_exp,
 } ;
 
-ezra( {
+ray( {
   nomCom : "rank",
  categorie : "Fun",
    }, 
@@ -134,7 +134,7 @@ ezra( {
     
     
          let msg = `
-┏━━━┛ Lucky Md Ranked ┗━━━┓
+┏━━━┛ Ray Md Ranked ┗━━━┓
          
     *Name :* @${auteurMsgRepondu.split("@")[0]}
     
@@ -146,7 +146,7 @@ ezra( {
 
     *Messages :* ${rank.messages}
     
-   ┕━✿━┑ FredieTech ┍━✿━┙`
+   ┕━✿━┑ Shukrani_tech ┍━✿━┙`
     
      zk.sendMessage( 
         dest,
@@ -210,7 +210,7 @@ ezra( {
     
     
          let msg = `
-┏━━━┛ HERE IS LUCKY RANK  ┗━━━┓
+┏━━━┛ HERE IS RAY RANK  ┗━━━┓
      
   *Name :* ${nomAuteurMessage}
 
@@ -222,7 +222,7 @@ ezra( {
 
   *Messages :* ${rang.messages}
 
-   ┕━✿━┑ FredieTech ┍━✿━┙`
+   ┕━✿━┑ shukrani_tech ┍━✿━┙`
     
      zk.sendMessage( 
         dest,
@@ -242,7 +242,7 @@ ezra( {
 
 }) ;
 
-ezra( {
+ray( {
   nomCom : "toprank",
  categorie : "Fun",
    }, 
@@ -251,7 +251,7 @@ ezra( {
     const {ms , mybotpic} = commandeOptions ;
 
 
-       let msg = `┏━━┛ Lucky Md┗━━┓\n\n`
+       let msg = `┏━━┛ Ray Md┗━━┓\n\n`
        
       let topRanks = await getBottom10Users() ;
         let mention = [] ;
