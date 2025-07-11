@@ -1,7 +1,7 @@
 const axios = require("axios");
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 
-ezra({
+ray({
   nomCom: "joke",
   aliases: ["jokeapi", "getjoke"],
   desc: "Fetch a random joke from JokeAPI.",
@@ -19,7 +19,7 @@ ezra({
       return repondre("❌ Error fetching joke. Please try again later.");
     }
 
-    let jokeMessage = `😂 *Lucky random Joke:*\n\n${data.joke}\n\n`;
+    let jokeMessage = `😂 *Ray random Joke:*\n\n${data.joke}\n\n`;
     jokeMessage += `🤷 *Category:* ${data.category}\n`;
     jokeMessage += `🤭 *Safe:* ${data.safe}\n`;
     jokeMessage += `*ID:* ${data.id}\n`;
@@ -32,7 +32,7 @@ ezra({
 });
 
 
-ezra({
+ray({
   nomCom: "randomjoke",
   aliases: ["jokeap"],
   desc: "Fetch a random joke from JokeAPI.",
@@ -50,7 +50,7 @@ ezra({
       return repondre("❌ Error fetching joke. Please try again later.");
     }
 
-    let jokeMessage = `😂 *Lucky random Joke:*\n\n${data.joke}\n\n`;
+    let jokeMessage = `😂 *Ray random Joke:*\n\n${data.joke}\n\n`;
     jokeMessage += `🤷 *Category:* ${data.category}\n`;
     jokeMessage += `🤭 *Safe:* ${data.safe}\n`;
     jokeMessage += `*ID:* ${data.id}\n`;
@@ -62,7 +62,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "getjoke",
   aliases: ["jokeapis"],
   desc: "Fetch a random joke from JokeAPI.",
