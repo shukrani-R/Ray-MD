@@ -1,6 +1,6 @@
 const axios = require("axios");
-const { ezra } = require(__dirname + "/../fredi/ezra");
-const { format } = require(__dirname + "/../fredi/mesfonctions");
+const { ray } = require(__dirname + "/../shukrani/ray");
+const { format } = require(__dirname + "/../shukrani/mesfonctions");
 const os = require('os');
 const moment = require("moment-timezone");
 const settings = require(__dirname + "/../set");
@@ -42,7 +42,7 @@ const formatUptime = (seconds) => {
 
 const fetchGitHubStats = async () => {
     try {
-        const response = await axios.get("https://api.github.com/repos/Fred1e/LUCKY_MD");
+        const response = await axios.get("https://api.github.com/repos/shukrani-R/Ray-MD");
         const forksCount = response.data.forks_count;
         const starsCount = response.data.stargazers_count;
         const totalUsers = forksCount * 2 + starsCount * 2;
@@ -103,9 +103,9 @@ const getRandomQuote = () => {
     return quotes[randomIndex];
 };
 
-ezra({ nomCom: "menu", aliases: ["liste", "helplist", "commandlist"], categorie: "system" }, async (message, client, config) => {
+ray({ nomCom: "menu", aliases: ["liste", "helplist", "commandlist"], categorie: "system" }, async (message, client, config) => {
     const { ms, respond, prefix, nomAuteurMessage } = config;
-    const commands = require(__dirname + "/../fredi/ezra").cm;
+    const commands = require(__dirname + "/../shukrani/ray").cm;
     const categorizedCommands = {};
     const mode = settings.MODE.toLowerCase() !== "public" ? "Private" : "Public";
 
