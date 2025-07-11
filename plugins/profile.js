@@ -1,7 +1,7 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const conf = require(__dirname + "/../set");
 
-ezra({
+ray({
   nomCom: "profile",
   aliases: ["pp", "who"],
   desc: "to generate profile picture",
@@ -52,7 +52,7 @@ ezra({
     console.error('Unexpected error in profile command:', error); 
   }
 });
-ezra({
+ray({
   nomCom: "profile2",
   aliases: ["pp2", "whois2"],
   desc: "to generate business profile picture",
