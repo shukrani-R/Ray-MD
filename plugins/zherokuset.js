@@ -1,7 +1,7 @@
 
 
 
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const s = require("../set");
 const fs = require('fs');
 const Heroku = require('heroku-client');
@@ -15,15 +15,15 @@ function getDescriptionFromEnv(varName) {
 }
 
 // Anti-call function setup
-ezra({
+ray({
   nomCom: 'anticall',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner. or Lucky owner* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner. or Ray owner* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -57,15 +57,15 @@ ezra({
 });
 
 
-ezra({
+ray({
   nomCom: 'autoreact',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -98,15 +98,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'autoreadstatus',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -138,15 +138,15 @@ ezra({
     await zk.sendMessage(chatId, { text: 'Error processing your request.' }, { quoted: ms });
   }
 });
-ezra({
+ray({
   nomCom: 'antidelete',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -179,15 +179,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'autodownloadstatus',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -220,15 +220,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'startingmessage',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -261,15 +261,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'autoreadmessage',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -302,15 +302,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'pm-permit',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -342,15 +342,15 @@ ezra({
     await zk.sendMessage(chatId, { text: 'Error processing your request.' }, { quoted: ms });
   }
 });
-ezra({
+ray({
   nomCom: 'autosavecontact',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -382,15 +382,15 @@ ezra({
     await zk.sendMessage(chatId, { text: 'Error processing your request.' }, { quoted: ms });
   }
 });
-ezra({
+ray({
   nomCom: 'autoreply',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -423,15 +423,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'autobio',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -464,15 +464,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'publicmode',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -505,15 +505,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'autorecord',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -546,15 +546,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'autotyping',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -587,15 +587,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'alwaysonline',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -628,15 +628,15 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'privatemode',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -668,15 +668,15 @@ ezra({
     await zk.sendMessage(chatId, { text: 'Error processing your request.' }, { quoted: ms });
   }
 });
-ezra({
+ray({
   nomCom: 'autoreactstatus',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -708,15 +708,15 @@ ezra({
     await zk.sendMessage(chatId, { text: 'Error processing your request.' }, { quoted: ms });
   }
 });
-ezra({
+ray({
   nomCom: 'audioreply',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner or Lucky owner.* 🤦,,idiot");
+    return repondre("*This command is restricted to the bot owner or Ray owner.* 🤦,,idiot");
   }
 
   // Validate user input and respond accordingly
@@ -749,9 +749,9 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'setting',
-  categorie: "LUCKY-SETTING"
+  categorie: "RAY-SETTING"
 }, async (chatId, messagingService, context) => {
   const { ms, repondre, superUser, auteurMessage } = context;
   
@@ -776,7 +776,7 @@ ezra({
     { nom: 'PRESENCE', choix: ["online", "typing", 'recording'] }
   ];
 
-  let settingsMenu = "╭──────༺♡༻──────╮\n  Lucky-Md Settings\n╰──────༺♡༻──────╯\n\n";
+  let settingsMenu = "╭──────༺♡༻──────╮\n  Ray-Md Settings\n╰──────༺♡༻──────╯\n\n";
   settingsOptions.forEach((option, index) => {
     settingsMenu += `${index + 1}- *${option.nom}*\n`;
   });
@@ -796,7 +796,7 @@ ezra({
   });
 
   const selectedOption = settingsOptions[userChoice.message.extendedTextMessage.text - 1];
-  let settingsDetail = `╭──────༺♡༻──────╮\n  Lucky-Md settings\n╰──────༺♡༻──────╯\n\n`;
+  let settingsDetail = `╭──────༺♡༻──────╮\n  Ray-Md settings\n╰──────༺♡༻──────╯\n\n`;
   settingsDetail += `*Variable Name* : ${selectedOption.nom}\n`;
   settingsDetail += `*Description* : ${getDescriptionFromEnv(selectedOption.nom)}\n\n`;
   settingsDetail += "┌────── ⋆⋅☆⋅⋆ ──────┐\n\n";
@@ -829,9 +829,9 @@ ezra({
 
 // Function to change Heroku environment variables
 function changevars(commandName, varName) {
-  ezra({
+  ray({
     nomCom: commandName,
-    categorie: 'LUCKY-SETTING'
+    categorie: 'RAY-SETTING'
   }, async (chatId, messagingService, context) => {
     const { arg, superUser, repondre } = context;
     
