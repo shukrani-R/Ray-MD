@@ -1,8 +1,8 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 // const { getGroupe } = require("../bdd/groupe"); 
 const conf = require("../set");
 
-ezra({
+ray({
     nomCom: "opentime",
     reaction: "😌",
     categorie: "group"
@@ -43,7 +43,7 @@ ezra({
     }
 });
 
-ezra({
+ray({
     nomCom: "closetime",
     reaction: "😌",
     categorie: "group"
