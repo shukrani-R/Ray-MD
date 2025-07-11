@@ -1,12 +1,12 @@
 
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const conf = require(__dirname + "/../set");
 const axios = require('axios');
 
 
 
 
-ezra({
+ray({
   nomCom: "timezone",
   aliases: ["timee", "datee"],
   desc: "Check the current local time and date for a specified timezone.",
@@ -52,7 +52,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "color",
   aliases: ["rcolor", "colorcode"],
   desc: "Generate a random color with name and code.",
@@ -78,7 +78,7 @@ ezra({
 });
 
 
-ezra({
+ray({
   nomCom: "binary",
   aliases: ["binarydgt", "binarycode"],
   desc: "Convert text into binary format",
@@ -104,7 +104,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "dbinary",
   aliases: ["binarydecode", "decodebinary"],
   desc: "Decode binary string into text.",
@@ -131,7 +131,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "base64",
   aliases: ["base64encode", "encodebase64"],
   desc: "Encode text into Base64 format.",
@@ -157,7 +157,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "unbase64",
   aliases: ["base64decode", "decodebase64"],
   desc: "Decode Base64 encoded text.",
@@ -183,7 +183,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "urlencode",
   aliases: ["urlencode", "encodeurl"],
   desc: "Encode text into URL encoding.",
@@ -209,7 +209,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "urldecode",
   aliases: ["decodeurl", "urldecode"],
   desc: "Decode URL encoded text.",
@@ -233,7 +233,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "dice",
   aliases: ["rolldice", "diceroll", "roll"],
   desc: "Roll a dice (1-6).",
@@ -254,7 +254,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "coinflip",
   aliases: ["flipcoin", "coinflip"],
   desc: "Flip a coin and get Heads or Tails.",
@@ -275,7 +275,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "flip",
   aliases: ["fliptext", "textflip"],
   desc: "Flip the text you provide.",
@@ -301,7 +301,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "pick",
   aliases: ["choose", "select"],
   desc: "Pick between two choices.",
@@ -329,7 +329,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "timenow",
   aliases: ["currenttime", "time"],
   desc: "Check the current local time.",
@@ -360,7 +360,7 @@ ezra({
 });
 
 
-ezra({
+ray({
   nomCom: "date",
   aliases: ["currentdate", "todaydate"],
   desc: "Check the current date.",
@@ -390,7 +390,7 @@ ezra({
 });
 
 
-ezra({
+ray({
   nomCom: "calculate",
   aliases: ["calcu", "maths", "mathema"],
   desc: "Evaluate a mathematical expression.",
@@ -422,7 +422,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "emojify",
   aliases: ["emoji", "txtemoji"],
   desc: "Convert text into emoji form.",
@@ -494,7 +494,7 @@ ezra({
 
 
 
-ezra({
+ray({
   nomCom: "news",
   aliases: ["latestnews", "newsheadlines"],
   desc: "Get the latest news headlines.",
