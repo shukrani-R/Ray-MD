@@ -1,8 +1,8 @@
-const { ezra } = require('../fredi/ezra');
+const { ray } = require('../shukrani/ray');
 
 const isIdeaCommandEnabled = true; // Variable pour activer ou désactiver la commande "idea"
 
-ezra({ nomCom: "lydea", categorie: "IA", reaction:"🧜", active: isIdeaCommandEnabled }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "ray", categorie: "IA", reaction:"🧜", active: isIdeaCommandEnabled }, async (dest, zk, commandeOptions) => {
   const { ms, arg, repondre } = commandeOptions;
   const message = arg.join(' ');
 
