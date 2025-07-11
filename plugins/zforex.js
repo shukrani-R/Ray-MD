@@ -1,7 +1,7 @@
 const axios = require('axios');
-const { ezra } = require('../fredi/ezra');
+const { ray } = require('../shukrani/ray');
 
-ezra({
+ray({
   nomCom: "currencylist",
   aliases: ["currencies", "conversionrates"],
   reaction: '💲',
@@ -45,7 +45,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "forex",
   categorie: "trade-place",
   desc: "Fetches the latest forex news",
@@ -82,7 +82,7 @@ ezra({
     return repondre("*Failed to fetch forex news.*");
   }
 });
-ezra({
+ray({
   nomCom: "fxstatus",
   categorie: "trade-place",
   desc: "Fetches the current status of the forex market",
@@ -136,7 +136,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "fxpairs",
 aliases: ["forexpairs", "pairforex"],
   categorie: "trade-place",
@@ -166,7 +166,7 @@ aliases: ["forexpairs", "pairforex"],
   }
 });
 
-ezra({
+ray({
   nomCom: "stocktickers",
   aliases: ["stockticks", "tickets"],
   categorie: "trade-place",
@@ -197,7 +197,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "fxexchange",
   aliases: ["forexexchange", "exchangerate"],
   categorie: "trade-place",
