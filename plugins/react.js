@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const fs = require("fs-extra");
 const { exec } = require("child_process");
 const child_process = require('child_process');
@@ -28,7 +28,7 @@ const GIFBufferToVideoBuffer = async (image) => {
 };
 
 const generateReactionCommand = (reactionName, reactionEmoji) => {
-    ezra({
+    ray({
         nomCom: reactionName,
         categorie: "Reaction",
         reaction: reactionEmoji,
