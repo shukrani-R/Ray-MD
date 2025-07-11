@@ -1,10 +1,10 @@
 
 
-const { ezra } = require("../fredi/ezra")
+const { ray } = require("../shukrani/ray")
 //const { getGroupe } = require("../luckydatabase/groupe")
 const { Sticker, StickerTypes } = require('wa-sticker-formatter');
-const {ajouterOuMettreAJourJid,mettreAJourAction,verifierEtatJid} = require("../luckydatabase/antilien")
-const {atbajouterOuMettreAJourJid,atbverifierEtatJid} = require("../luckydatabase/antibot")
+const {ajouterOuMettreAJourJid,mettreAJourAction,verifierEtatJid} = require("../shukranidatabase/antilien")
+const {atbajouterOuMettreAJourJid,atbverifierEtatJid} = require("../shukranidatabase/antibot")
 const { search, download } = require("aptoide-scraper");
 const fs = require("fs-extra");
 const conf = require("../set");
@@ -15,7 +15,7 @@ const { default: axios } = require('axios');
 
 
 
-ezra({ nomCom: "tagall", categorie: 'Group', reaction: "📯" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "tagall", categorie: 'Group', reaction: "📯" }, async (dest, zk, commandeOptions) => {
 
   const { ms, repondre, arg, verifGroupe, nomGroupe, infosGroupe, nomAuteurMessage, verifAdmin, superUser } = commandeOptions
 
@@ -31,7 +31,7 @@ ezra({ nomCom: "tagall", categorie: 'Group', reaction: "📯" }, async (dest, zk
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   var tag = ""; 
   tag += `========================\n  
-        🌟 *LUCKY-𝐌𝐃*𝕋𝔸𝔾𝔾𝔼𝔻 🌟
+        🌟 *RAY-𝐌𝐃*𝕋𝔸𝔾𝔾𝔼𝔻 🌟
 ========================\n
 👥 Group : ${nomGroupe} 🚀 
 👤 Autor : *${nomAuteurMessage}* 👋 
@@ -62,7 +62,7 @@ ezra({ nomCom: "tagall", categorie: 'Group', reaction: "📯" }, async (dest, zk
 });
 
 
-ezra({ nomCom: "link", categorie: 'Group', reaction: "🚜" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "link", categorie: 'Group', reaction: "🚜" }, async (dest, zk, commandeOptions) => {
   const { repondre, nomGroupe, nomAuteurMessage, verifGroupe } = commandeOptions;
   if (!verifGroupe) { repondre("wait bro , you want the link to my dm?"); return; };
 
@@ -72,13 +72,13 @@ ezra({ nomCom: "link", categorie: 'Group', reaction: "🚜" }, async (dest, zk, 
 
   let mess = `hello ${nomAuteurMessage} , here is the group link for ${nomGroupe} \n
 
-Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  LUCKY 𝚃𝚣`
+Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  RAY 𝚃𝚣`
   repondre(mess)
 
 
 });
 /** *nommer un membre comme admin */
-ezra({ nomCom: "promote", categorie: 'Group', reaction: "💐" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "promote", categorie: 'Group', reaction: "💐" }, async (dest, zk, commandeOptions) => {
   let { repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifGroupe, auteurMessage, superUser, idBot } = commandeOptions;
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   if (!verifGroupe) { return repondre("For groups only"); }
@@ -140,7 +140,7 @@ ezra({ nomCom: "promote", categorie: 'Group', reaction: "💐" }, async (dest, z
 //fin nommer
 /** ***demettre */
 
-ezra({ nomCom: "demote", categorie: 'Group', reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "demote", categorie: 'Group', reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
   let { repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifGroupe, auteurMessage, superUser, idBot } = commandeOptions;
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   if (!verifGroupe) { return repondre("For groups only"); }
@@ -206,7 +206,7 @@ ezra({ nomCom: "demote", categorie: 'Group', reaction: "👨🏿‍💼" }, asyn
 
 /** ***fin démettre****  **/
 /** **retirer** */
-ezra({ nomCom: "remove", categorie: 'Group', reaction: "😱" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "remove", categorie: 'Group', reaction: "😱" }, async (dest, zk, commandeOptions) => {
   let { repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifGroupe, nomAuteurMessage, auteurMessage, superUser, idBot } = commandeOptions;
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   if (!verifGroupe) { return repondre("for groups only"); }
@@ -251,7 +251,7 @@ ezra({ nomCom: "remove", categorie: 'Group', reaction: "😱" }, async (dest, zk
             if (admin == false) {
               const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif"
               var sticker = new Sticker(gifLink, {
-                pack: 'LUCKY-MD', // The pack name
+                pack: 'RAY-MD', // The pack name
                 author: nomAuteurMessage, // The author name
                 type: StickerTypes.FULL, // The sticker type
                 categories: ['🤩', '🎉'], // The sticker category
@@ -282,7 +282,7 @@ ezra({ nomCom: "remove", categorie: 'Group', reaction: "😱" }, async (dest, zk
 /** *****fin retirer */
 
 
-ezra({ nomCom: "del", categorie: 'Group',reaction:"🧹" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "del", categorie: 'Group',reaction:"🧹" }, async (dest, zk, commandeOptions) => {
 
   const { ms, repondre, verifGroupe,auteurMsgRepondu,idBot, msgRepondu, verifAdmin, superUser} = commandeOptions;
   
@@ -330,7 +330,7 @@ ezra({ nomCom: "del", categorie: 'Group',reaction:"🧹" }, async (dest, zk, com
 
 });
 
-ezra({ nomCom: "info", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "info", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, verifGroupe } = commandeOptions;
   if (!verifGroupe) { repondre("order reserved for the group only"); return };
 
@@ -354,7 +354,7 @@ ezra({ nomCom: "info", categorie: 'Group' }, async (dest, zk, commandeOptions) =
 
  //------------------------------------antilien-------------------------------
 
- ezra({ nomCom: "antilink", categorie: 'Group', reaction: "🔗" }, async (dest, zk, commandeOptions) => {
+ ray({ nomCom: "antilink", categorie: 'Group', reaction: "🔗" }, async (dest, zk, commandeOptions) => {
 
 
   var { repondre, arg, verifGroupe, superUser, verifAdmin } = commandeOptions;
@@ -422,7 +422,7 @@ ezra({ nomCom: "info", categorie: 'Group' }, async (dest, zk, commandeOptions) =
 
  //------------------------------------antibot-------------------------------
 
- ezra({ nomCom: "antibot", categorie: 'Group', reaction: "👾" }, async (dest, zk, commandeOptions) => {
+ ray({ nomCom: "antibot", categorie: 'Group', reaction: "👾" }, async (dest, zk, commandeOptions) => {
 
 
   var { repondre, arg, verifGroupe, superUser, verifAdmin } = commandeOptions;
@@ -488,7 +488,7 @@ ezra({ nomCom: "info", categorie: 'Group' }, async (dest, zk, commandeOptions) =
 
 //----------------------------------------------------------------------------
 
-ezra({ nomCom: "group", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "group", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
 
   const { repondre, verifGroupe, verifAdmin, superUser, arg } = commandeOptions;
 
@@ -518,7 +518,7 @@ ezra({ nomCom: "group", categorie: 'Group' }, async (dest, zk, commandeOptions) 
 
 });
 
-ezra({ nomCom: "left", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "left", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
 
   const { repondre, verifGroupe, superUser } = commandeOptions;
   if (!verifGroupe) { repondre("order reserved for group only"); return };
@@ -531,7 +531,7 @@ ezra({ nomCom: "left", categorie: "Mods" }, async (dest, zk, commandeOptions) =>
   zk.groupLeave(dest)
 });
 
-ezra({ nomCom: "gname", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "gname", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
 
   const { arg, repondre, verifAdmin } = commandeOptions;
 
@@ -550,7 +550,7 @@ ezra({ nomCom: "gname", categorie: 'Group' }, async (dest, zk, commandeOptions) 
  
 }) ;
 
-ezra({ nomCom: "gdesc", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "gdesc", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
 
   const { arg, repondre, verifAdmin } = commandeOptions;
 
@@ -570,7 +570,7 @@ ezra({ nomCom: "gdesc", categorie: 'Group' }, async (dest, zk, commandeOptions) 
 }) ;
 
 
-ezra({ nomCom: "gpp", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "gpp", categorie: 'Group' }, async (dest, zk, commandeOptions) => {
 
   const { repondre, msgRepondu, verifAdmin } = commandeOptions;
 
@@ -595,7 +595,7 @@ ezra({ nomCom: "gpp", categorie: 'Group' }, async (dest, zk, commandeOptions) =>
 });
 
 /////////////
-ezra({nomCom:"tag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
+ray({nomCom:"tag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
 
   const {repondre,msgRepondu,verifGroupe,arg ,verifAdmin , superUser}=commandeOptions;
 
@@ -660,7 +660,7 @@ ezra({nomCom:"tag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOpti
         let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
 
         let stickerMess = new Sticker(media, {
-          pack: 'LUCKY-MD',
+          pack: 'RAY-MD',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",
@@ -702,7 +702,7 @@ ezra({nomCom:"tag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOpti
 });
 
 /////////////
-ezra({nomCom:"hidetag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
+ray({nomCom:"hidetag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
 
   const {repondre,msgRepondu,verifGroupe,arg ,verifAdmin , superUser}=commandeOptions;
 
@@ -767,7 +767,7 @@ ezra({nomCom:"hidetag",categorie:'Group',reaction:"🎤"},async(dest,zk,commande
         let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
 
         let stickerMess = new Sticker(media, {
-          pack: 'LUCKY-MD',
+          pack: 'RAY-MD',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",
@@ -809,7 +809,7 @@ ezra({nomCom:"hidetag",categorie:'Group',reaction:"🎤"},async(dest,zk,commande
 });
 
 /////////////
-ezra({nomCom:"htag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
+ray({nomCom:"htag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
 
   const {repondre,msgRepondu,verifGroupe,arg ,verifAdmin , superUser}=commandeOptions;
 
@@ -874,7 +874,7 @@ ezra({nomCom:"htag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOpt
         let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
 
         let stickerMess = new Sticker(media, {
-          pack: 'LUCKY-MD',
+          pack: 'RAY-MD',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",
@@ -916,7 +916,7 @@ ezra({nomCom:"htag",categorie:'Group',reaction:"🎤"},async(dest,zk,commandeOpt
 });
 
 
-ezra({ nomCom: "app", reaction: "🚜", categorie: "Search" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "app", reaction: "🚜", categorie: "Search" }, async (dest, zk, commandeOptions) => {
   const { repondre, arg, ms } = commandeOptions;
 
   try {
@@ -940,7 +940,7 @@ ezra({ nomCom: "app", reaction: "🚜", categorie: "Search" }, async (dest, zk, 
 
     const downloadLink = appData.dllink;
     const captionText =
-      "『 *LUCKY-MD Application* 』\n\n*Name :* " + appData.name +
+      "『 *RAY-MD Application* 』\n\n*Name :* " + appData.name +
       "\n*Id :* " + appData["package"] +
       "\n*Last Update :* " + appData.lastup +
       "\n*Size :* " + appData.size +
@@ -982,10 +982,10 @@ ezra({ nomCom: "app", reaction: "🚜", categorie: "Search" }, async (dest, zk, 
 
 /*******************************  automute && autoummute ***************************/
 
-const cron = require(`../luckydatabase/cron`) ;
+const cron = require(`../shukranidatabase/cron`) ;
 
 
-ezra({
+ray({
       nomCom : 'automute',
       categorie : 'Group'
   } , async (dest,zk,commandeOptions) => {
@@ -1057,7 +1057,7 @@ ezra({
   });
 
 
-  ezra({
+  ray({
     nomCom : 'autounmute',
     categorie : 'Group'
 } , async (dest,zk,commandeOptions) => {
@@ -1134,7 +1134,7 @@ ezra({
 
 
 
-ezra({
+ray({
   nomCom : 'fkick',
   categorie : 'Group'
 } , async (dest,zk,commandeOptions) => {
@@ -1167,7 +1167,7 @@ ezra({
 }) ;
 
 
-ezra({
+ray({
       nomCom : 'nsfw',
       categorie : 'Group'
 }, async (dest,zk,commandeOptions) => {
@@ -1176,7 +1176,7 @@ ezra({
 
   if(!verifAdmin) { repondre('Sorry, you cannot enable NSFW content without being an administrator of the group') ; return}
 
-      let hbd = require('../luckydatabase/hentai') ;
+      let hbd = require('../shukranidatabase/hentai') ;
 
     let isHentaiGroupe = await hbd.checkFromHentaiList(dest) ;
 
