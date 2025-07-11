@@ -1,12 +1,12 @@
 
-const {ezra } = require("../fredi/ezra");
+const {ray } = require("../shikrani/ray");
 const axios = require('axios');
 const cheerio = require('cheerio');
-let func = require('../fredi/mesfonctions') ;
-let hdb = require('../luckydatabase/hentai') ;
+let func = require('../shukrani/mesfonctions') ;
+let hdb = require('../shukranidatabase/hentai') ;
 
 
-ezra({
+ray({
   nomCom: "hwaifu",
   categorie: "Hentai",
   reaction: "😂"
@@ -34,7 +34,7 @@ async (origineMessage, zk, commandeOptions) => {
 
 
   /////////////// hneko //////////
-ezra({
+ray({
   nomCom: "trap",
   categorie: "Hentai",
   reaction: "😜"
@@ -62,7 +62,7 @@ async (origineMessage, zk, commandeOptions) => {
   }
 });
 
-ezra({
+ray({
   nomCom: "hneko",
   categorie: "Hentai",
   reaction: "😅"
@@ -90,7 +90,7 @@ async (origineMessage, zk, commandeOptions) => {
 });
 
 
-ezra({
+ray({
   nomCom: "blowjob",
   categorie: "Hentai",
   reaction: "😱"
@@ -119,7 +119,7 @@ async (origineMessage, zk, commandeOptions) => {
 
 
 
-ezra({
+ray({
   nomCom: "hentaivid",
   categorie: "Hentai",
   reaction: "😁"
