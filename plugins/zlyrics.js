@@ -1,9 +1,9 @@
 
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const axios = require("axios");
 
 // Define the command with aliases
-ezra({
+ray({
   nomCom: "lyrics",
   aliases: ["lyric", "mistari"],
   reaction: '🤦',
@@ -46,7 +46,7 @@ ezra({
   }
 
   const { title, artist, thumb, lyrics } = lyricsData.result;
-  const imageUrl = thumb || "https://files.catbox.moe/b2vql7.jpg";
+  const imageUrl = thumb || "https://files.catbox.moe/b2uxhi.jpg";
 
   const caption = `**Title**: ${title}\n**Artist**: ${artist}\n\n${lyrics}`;
 
