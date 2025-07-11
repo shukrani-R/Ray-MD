@@ -1,9 +1,9 @@
-const {ezra}=require("../fredi/ezra")
+const {ray}=require("../shukrani/ray")
 const {getContentType}=require("@whiskeysockets/baileys")
 
 
 
-ezra({nomCom:"vv",categorie:"General",reaction:"🤩"},async(dest,zk,commandeOptions)=>{
+ray({nomCom:"vv",categorie:"General",reaction:"🤩"},async(dest,zk,commandeOptions)=>{
 
 const {ms,msgRepondu,repondre}=commandeOptions;
 
