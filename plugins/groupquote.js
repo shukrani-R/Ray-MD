@@ -1,7 +1,7 @@
 
-const { ezra } = require('../fredi/ezra');
+const { ray } = require('../shukrani/ray');
 
-ezra({ nomCom: 'quote', categorie: 'Group' }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: 'quote', categorie: 'Group' }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, verifGroupe, arg } = commandeOptions;
   if (!verifGroupe) {
     repondre('This Command works in groups only🤣');
@@ -13,7 +13,7 @@ ezra({ nomCom: 'quote', categorie: 'Group' }, async (dest, zk, commandeOptions) 
       fetch('https://animechan.xyz/api/random')
         .then((response) => response.json())
         .then(async (quote) => {
-          repondre(`*Lucky-MdQuotes*
+          repondre(`*Ray-MdQuotes*
 
 🎬 Anime: ${quote.anime}
 👤 Character: ${quote.character}
@@ -31,13 +31,13 @@ Powered by *frediezra*`);
       fetch('https://animechan.xyz/api/random/character?name=' + query)
         .then((response) => response.json())
         .then(async (quote) => {
-          repondre(`LUCKY-MD
+          repondre(`RAY-MD
 
 🎬 Anime: ${quote.anime}
 👤 Character: ${quote.character}
 💬 Quote: ${quote.quote}
 
-Powered by *frediezra*`);
+Powered by *shukranieray*`);
         });
     } catch (e) {
       repondre('Erreur lors de la génération de la citation : ' + e.message);
