@@ -1,4 +1,4 @@
-const {ezra}=require("../fredi/ezra")
+const {ray}=require("../shukrani/ray")
 const {getContentType}=require("@whiskeysockets/baileys")
 
 
@@ -37,7 +37,7 @@ await zk.sendMessage(dest,{video:{url:video},caption:texte},{quoted:ms})
 
 })*/
 
-ezra({ nomCom: "vv", aliases: ["send", "keep"], categorie: "new" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "vv", aliases: ["send", "keep"], categorie: "new" }, async (dest, zk, commandeOptions) => {
   const { repondre, msgRepondu, superUser } = commandeOptions;
 
   if (msgRepondu) {
@@ -57,7 +57,7 @@ ezra({ nomCom: "vv", aliases: ["send", "keep"], categorie: "new" }, async (dest,
       } else if (msgRepondu.stickerMessage) {
         const media = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage);
         const stickerMess = new Sticker(media, {
-          pack: 'LUCKY-MD',
+          pack: 'RAY-MD',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",
