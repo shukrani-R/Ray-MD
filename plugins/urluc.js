@@ -1,5 +1,5 @@
 const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const { downloadMediaMessage } = require('@whiskeysockets/baileys');
 const fs = require("fs-extra");
 const ffmpeg = require("fluent-ffmpeg");
@@ -37,7 +37,7 @@ async function convertToMp3(inputPath, outputPath) {
     });
 }
 
-ezra({ nomCom: "url", categorie: "General", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
+ray({ nomCom: "url", categorie: "General", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
     const { msgRepondu, repondre } = commandeOptions;
 
     if (!msgRepondu) {
@@ -88,13 +88,13 @@ ezra({ nomCom: "url", categorie: "General", reaction: "👨🏿‍💻" }, async
         // Respond with the URL based on media type
         switch (mediaType) {
             case 'image':
-                repondre(`Lucky url: ${catboxUrl}`);
+                repondre(`ray url: ${catboxUrl}`);
                 break;
             case 'video':
-                repondre(`lucky url: ${catboxUrl}`);
+                repondre(`ray url: ${catboxUrl}`);
                 break;
             case 'audio':
-                repondre(`lucky url: ${catboxUrl}`);
+                repondre(`ray url: ${catboxUrl}`);
                 break;
             default:
                 repondre('An unknown error occurred.');
