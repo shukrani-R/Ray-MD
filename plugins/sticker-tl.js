@@ -1,8 +1,8 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const axios = require("axios");
 const { Sticker, StickerTypes } = require("wa-sticker-formatter");
 
-ezra({
+ray({
   'nomCom': 'tel-sticker',
   'categorie': 'General'
 }, async (_0x2e51e1, _0x5b32f3, _0x2435f3) => {
@@ -34,7 +34,7 @@ ezra({
     const isAnimated = stickerSet.is_animated || stickerSet.is_video;
     const stickerType = isAnimated ? "animated sticker" : "not animated sticker";
 
-    const message = `Lucky-stickers-dl\n\n*Name:* ${stickerSet.name}\n*Type:* ${stickerType}\n*Length:* ${stickerSet.stickers.length}\n\nDownloading...`;
+    const message = `Ray-stickers-dl\n\n*Name:* ${stickerSet.name}\n*Type:* ${stickerType}\n*Length:* ${stickerSet.stickers.length}\n\nDownloading...`;
     await reply(message);
 
     for (const sticker of stickerSet.stickers) {
@@ -49,7 +49,7 @@ ezra({
 
       const stickerObject = new Sticker(fileBufferResponse.data, {
         pack: messageAuthor,
-        author: "LUCKY_MD",
+        author: "RAY_MD",
         type: StickerTypes.FULL,
         categories: ['🤩', '🎉'],
         id: "12345",
