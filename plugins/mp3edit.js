@@ -1,11 +1,11 @@
-const {ezra} = require('../fredi/ezra');
+const {ray} = require('../shukrani/ray');
 const fs = require("fs");
 const { exec } = require("child_process");
 
 
 const filename = `${Math.random().toString(36)}`;
 
-ezra (
+ray (
     {
         nomCom : 'deep',
         categorie : 'Audio-Edit',
@@ -50,7 +50,7 @@ ezra (
     }
 );
 
-ezra (
+ray (
     {
         nomCom : 'bass',
         categorie : 'Audio-Edit',
@@ -95,7 +95,7 @@ ezra (
     }
 );
 
-ezra(
+ray(
     {
       nomCom: 'reverse',
       categorie: 'Audio-Edit',
@@ -131,7 +131,7 @@ ezra(
     }
   );
   
-  ezra(
+  ray(
     {
       nomCom: 'slow',
       categorie: 'Audio-Edit',
@@ -168,7 +168,7 @@ ezra(
   );
 
 // Cas pour l'effet "smooth"
-ezra(
+ray(
     {
       nomCom: 'smooth',
       categorie: 'Audio-Edit',
@@ -205,7 +205,7 @@ ezra(
   );
   
   // Cas pour l'effet "tempo"
-  ezra(
+  ray(
     {
       nomCom: 'tempo',
       categorie: 'Audio-Edit',
@@ -242,7 +242,7 @@ ezra(
   );
   
   // Cas pour l'effet "nightcore"
-  ezra(
+  ray(
     {
       nomCom: 'nightcore',
       categorie: 'Audio-Edit',
