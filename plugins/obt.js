@@ -1,8 +1,8 @@
 const JavaScriptObfuscator = require("javascript-obfuscator");
 const {
-  ezra
-} = require("../fredi/ezra");
-ezra({
+  ray
+} = require("../shukrani/ray");
+ray({
   'nomCom': "obt",
   'categorie': 'General'
 }, async (_0x3cf1f0, _0x36cbf1, _0x90621a) => {
