@@ -1,4 +1,4 @@
-const { ezra } = require(__dirname + "/../fredi/ezra");
+const { ray } = require(__dirname + "/../shukrani/ray");
 
 // Function to convert text to fancy uppercase font
 const toFancyUppercaseFont = (text) => {
@@ -19,7 +19,7 @@ const toFancyLowercaseFont = (text) => {
 }
 
 // Command to list all bot commands along with descriptions and aliases
-ezra({
+ray({
     nomCom: "help",
     reaction: "🤦",
     aliases: ["panelist", "commandlist", "cmdlist", "list"],
@@ -27,7 +27,7 @@ ezra({
     categorie: "universal"
 }, async (dest, zk, context) => {
     const { respond, prefix, nomAuteurMessage } = context;
-    const commands = require(__dirname + "/../fredi/ezra").cm;
+    const commands = require(__dirname + "/../shukrani/ray").cm;
 
     let menu = 'ʟᴜᴄᴋʏ ᴍᴅ ʟɪsᴛ\n\n';
     let ezraList = [];
@@ -43,10 +43,10 @@ ezra({
     });
 
     // Sort the command list alphabetically by command name
-    ezraList.sort((a, b) => a.nomCom.localeCompare(b.nomCom));
+    rayList.sort((a, b) => a.nomCom.localeCompare(b.nomCom));
 
     // Format and add each command, description, and alias to the menu
-    ezraList.forEach(({ nomCom, desc, aliases, categorie, reaction }, index) => {
+    rayList.forEach(({ nomCom, desc, aliases, categorie, reaction }, index) => {
         menu += `${index + 1}. ${toFancyUppercaseFont(nomCom.trim())}\n`;
         menu += `Description: ${toFancyLowercaseFont(desc)}\n`;
         menu += `Aliases: ${toFancyLowercaseFont(aliases)}\n`;
@@ -59,10 +59,10 @@ ezra({
         text: menu,
         contextInfo: {
             externalAdReply: {
-                title: "LUCKY-MD",
-                body: "𝐫𝐞𝐠𝐚𝐫𝐝𝐬 frediezra",
-                thumbnailUrl: "https://files.catbox.moe/7irwqn.jpeg",
-                sourceUrl: "https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f",
+                title: "RAY-MD",
+                body: "𝐫𝐞𝐠𝐚𝐫𝐝𝐬 shukranieray",
+                thumbnailUrl: "https://files.catbox.moe/42b1sn.png",
+                sourceUrl: "https://whatsapp.com/channel/0029VbB16dt9hXEyw3bO1k0p",
                 mediaType: 1,
                 renderLargerThumbnail: true
             }
