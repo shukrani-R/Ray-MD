@@ -1,8 +1,8 @@
-const { ezra } = require('../fredi/ezra');
+const { ray } = require('../shukrani/ray');
 const gis = require('g-i-s');
 const axios = require('axios');
 const conf = require(__dirname + '/../set');
-ezra({
+ray({
   nomCom: "screenswidth",
   categorie: "take-screenshots",
   reaction: "🎞️"
@@ -11,7 +11,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky  Md*`;
+    const cap = `*Screenshot taken by Ray  Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -33,7 +33,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "screenscrop",
   categorie: "take-screenshots",
   reaction: "🎞️"
@@ -42,7 +42,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -64,7 +64,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "maxage",
   categorie: "take-screenshots",
   reaction: "🎞️"
@@ -73,7 +73,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -95,7 +95,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "jpg",
   categorie: "tak-screenshots",
   reaction: "🎞️"
@@ -104,7 +104,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -126,7 +126,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "png",
   aliases: ["ss", "sshot"],
   categorie: "take-screenshots",
@@ -136,7 +136,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -158,7 +158,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "noanimate",
   categorie: "take-screenshots",
   reaction: "🎞️"
@@ -167,7 +167,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -189,7 +189,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "wait",
   aliases: ["ss", "sshot"],
   categorie: "take-screenshots",
@@ -199,7 +199,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot take by Lucky Md*`;
+    const cap = `*Screenshot take by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -221,7 +221,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "viewportwidth",
   aliases: ["ss", "sshot"],
   categorie: "take-screenshots",
@@ -231,7 +231,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -253,7 +253,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "iphone5",
   categorie: "take-screenshots",
   reaction: "🎞️"
@@ -262,7 +262,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -284,7 +284,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "iphone6",
   aliases: ["ss", "sshot"],
   categorie: "take-screenshots",
@@ -316,7 +316,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "iphone6plus",
   categorie: "take-screenshots",
   reaction: "🎞️"
@@ -347,7 +347,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "iphoneX",
   categorie: "take-screenshots",
   reaction: "🎞️"
@@ -356,7 +356,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -378,7 +378,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "iphone12pro",
   aliases: ["ss", "sshot"],
   categorie: "take-screenshots",
@@ -388,7 +388,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -410,7 +410,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "iphone14promax",
   aliases: ["ss", "sshot"],
   categorie: "take-screenshots",
@@ -442,7 +442,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "galaxys5",
   aliases: ["ss", "sshot"],
   categorie: "take-screenshots",
@@ -474,7 +474,7 @@ ezra({
     repondre(`An error occurred while processing the screenshot: ${error.message}`);
   }
 });
-ezra({
+ray({
   nomCom: "screenshot",
   aliases: ["ss", "sshot"],
   categorie: "take-screenshots",
@@ -484,7 +484,7 @@ ezra({
 
   try {
     // Caption for the screenshot
-    const cap = `*Screenshot taken by Lucky Md*`;
+    const cap = `*Screenshot taken by Ray Md*`;
 
     // Check if a URL is provided
     if (!arg[0]) {
@@ -507,7 +507,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: "imgs",
   aliases: ["image", "images"],
   categorie: "mod-image",
@@ -553,7 +553,7 @@ ezra({
   }
 });
 
-ezra({
+ray({
   nomCom: 'messi',
   categorie: 'mod-image',
   reaction: '🐐'
@@ -590,7 +590,7 @@ ezra({
     sendMessage("Error occurred while retrieving data: " + error.message);
   }
 });
-ezra({
+ray({
   nomCom: "waifues",
   categorie: "mod-image",
   reaction: "🙄"
@@ -622,7 +622,7 @@ ezra({
     repondre('Error retrieving data: ' + error.message);
   }
 });
-ezra({
+ray({
   nomCom: "traps",
   categorie: "mod-image",
   reaction: "🙄"
@@ -654,7 +654,7 @@ ezra({
     repondre('Error retrieving data: ' + error.message);
   }
 });
-ezra({
+ray({
   nomCom: "gneko",
   categorie: "mod-image",
   reaction: "🙄"
@@ -686,7 +686,7 @@ ezra({
     repondre('Error retrieving data: ' + error.message);
   }
 });
-ezra({
+ray({
   nomCom: "blowjobs",
   categorie: "mod-image",
   reaction: "🙄"
@@ -718,7 +718,7 @@ ezra({
     repondre('Error retrieving data: ' + error.message);
   }
 });
-ezra({
+ray({
   'nomCom': "lulcaty",
   'reaction': '📡',
   'categorie': 'mod-image'
@@ -732,7 +732,7 @@ ezra({
     const imageUrl = `https://api.popcat.xyz/lulcat?text=${text}`;
     message.sendMessage(user, {
       'image': { 'url': imageUrl },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, { 'quoted': ms });
   } catch (error) {
     console.error("Error:", error.message || "An error occurred");
@@ -741,7 +741,7 @@ ezra({
 });
 
 // Sadcat Meme Command
-ezra({
+ray({
   'nomCom': "sadcaty",
   'reaction': '📡',
   'categorie': 'mod-image'
@@ -755,7 +755,7 @@ ezra({
     const imageUrl = `https://api.popcat.xyz/sadcat?text=${text}`;
     message.sendMessage(user, {
       'image': { 'url': imageUrl },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, { 'quoted': ms });
   } catch (error) {
     console.error("Error:", error.message || "An error occurred");
@@ -764,7 +764,7 @@ ezra({
 });
 
 // Nokia Meme Command
-ezra({
+ray({
   'nomCom': "nokiah",
   'reaction': '📡',
   'categorie': 'mod-image'
@@ -787,7 +787,7 @@ ezra({
 });
 
 // Unforgivable Meme Command
-ezra({
+ray({
   'nomCom': "unforgivab",
   'reaction': '📡',
   'categorie': 'mod-image'
@@ -801,7 +801,7 @@ ezra({
     const imageUrl = `https://api.popcat.xyz/unforgivable?text=${text}`;
     message.sendMessage(user, {
       'image': { 'url': imageUrl },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, { 'quoted': ms });
   } catch (error) {
     console.error("Error:", error.message || "An error occurred");
@@ -810,7 +810,7 @@ ezra({
 });
 
 // Pooh Meme Command
-ezra({
+ray({
   'nomCom': "poohh",
   'reaction': '📡',
   'categorie': 'mod-image'
@@ -824,7 +824,7 @@ ezra({
     const imageUrl = `https://api.popcat.xyz/pooh?text1=&text2=${text}`;
     message.sendMessage(user, {
       'image': { 'url': imageUrl },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, { 'quoted': ms });
   } catch (error) {
     console.error("Error:", error.message || "An error occurred");
@@ -833,7 +833,7 @@ ezra({
 });
 
 // Oogway Meme Command
-ezra({
+ray({
   'nomCom': "ohogway",
   'reaction': '📡',
   'categorie': 'mod-image'
@@ -847,7 +847,7 @@ ezra({
     const imageUrl = `https://api.popcat.xyz/oogway?text=${text}`;
     message.sendMessage(user, {
       'image': { 'url': imageUrl },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, { 'quoted': ms });
   } catch (error) {
     console.error("Error:", error.message || "An error occurred");
@@ -856,7 +856,7 @@ ezra({
 });
 
 // Biden Meme Command
-ezra({
+ray({
   'nomCom': "jbiden",
   'reaction': '📡',
   'categorie': 'mod-image'
@@ -870,7 +870,7 @@ ezra({
     const imageUrl = `https://api.popcat.xyz/biden?text=${text}`;
     message.sendMessage(user, {
       'image': { 'url': imageUrl },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, { 'quoted': ms });
   } catch (error) {
     console.error("Error:", error.message || "An error occurred");
@@ -879,7 +879,7 @@ ezra({
 });
 
 // Drip Meme Command
-ezra({
+ray({
   'nomCom': "hdrip",
   'reaction': '📡',
   'categorie': 'mod-image'
@@ -892,7 +892,7 @@ ezra({
     const imageUrl = `https://api.popcat.xyz/drip?image=${arg.join(" ")}`;
     message.sendMessage(user, {
       'image': { 'url': imageUrl },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, { 'quoted': ms });
   } catch (error) {
     console.error("Error:", error.message || "An error occurred");
@@ -901,7 +901,7 @@ ezra({
 });
 
 // Clown Meme Command
-ezra({
+ray({
   'nomCom': "clowns",
   'reaction': '📡',
   'categorie': 'mod-image'
@@ -915,7 +915,7 @@ ezra({
     const imageUrl = `https://api.popcat.xyz/clown?text=${text}`;
     message.sendMessage(user, {
       'image': { 'url': imageUrl },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, { 'quoted': ms });
   } catch (error) {
     console.error("Error:", error.message || "An error occurred");
@@ -925,7 +925,7 @@ ezra({
 
 
 // Image generation command
-ezra({
+ray({
   'nomCom': "imag-generate",
   'reaction': '📡',
   'category': 'mod-image'
@@ -941,7 +941,7 @@ ezra({
       'image': {
         'url': generatedImageUrl
       },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, {
       'quoted': messageInstance
     });
@@ -952,7 +952,7 @@ ezra({
 });
 
 // Image text extraction command
-ezra({
+ray({
   'nomCom': "toextract",
   'reaction': '📡',
   'category': 'mod-image'
@@ -960,7 +960,7 @@ ezra({
   const { respond: sendMessage, args, messageInstance } = context;
   try {
     if (!args || args.length === 0) {
-      return sendMessage("Please insert the image URL and LUCKY-MD will extract the text for you.");
+      return sendMessage("Please insert the image URL and RAY-MD will extract the text for you.");
     }
     const imageUrl = args.join(" ");
     const extractedTextUrl = "https://www.samirxpikachu.run.place/extract/text?url=" + imageUrl;
@@ -968,7 +968,7 @@ ezra({
       'image': {
         'url': extractedTextUrl
       },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, {
       'quoted': messageInstance
     });
@@ -979,7 +979,7 @@ ezra({
 });
 
 // Bing image generation command
-ezra({
+ray({
   'nomCom': "flux-img",
   'reaction': '📡',
   'category': 'mod-image'
@@ -987,7 +987,7 @@ ezra({
   const { respond: sendMessage, args, messageInstance } = context;
   try {
     if (!args || args.length === 0) {
-      return sendMessage("Please describe your image and LUCKY-MD will generate it.");
+      return sendMessage("Please describe your image and RAY-MD will generate it.");
     }
     const prompt = args.join(" ");
     const generatedImageUrl = "https://www.samirxpikachu.run.place/flux?prompt=" + prompt;
@@ -995,7 +995,7 @@ ezra({
       'image': {
         'url': generatedImageUrl
       },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, {
       'quoted': messageInstance
     });
@@ -1008,7 +1008,7 @@ ezra({
 
 
 // Ilama image generation command
-ezra({
+ray({
   'nomCom': "mi",
   'reaction': '📡',
   'category': 'mod-image'
@@ -1016,7 +1016,7 @@ ezra({
   const { respond: sendMessage, args, messageInstance } = context;
   try {
     if (!args || args.length === 0) {
-      return sendMessage("Please describe your image and LUCKY-MD will generate it.");
+      return sendMessage("Please describe your image and RAY-MD will generate it.");
     }
     const prompt = args.join(" ");
     const generatedImageUrl = "https://www.samirxpikachu.run.place/multi/Ml?prompt=" + prompt;
@@ -1024,7 +1024,7 @@ ezra({
       'image': {
         'url': generatedImageUrl
       },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, {
       'quoted': messageInstance
     });
@@ -1035,7 +1035,7 @@ ezra({
 });
 
 // Beautify image command
-ezra({
+ray({
   'nomCom': "dbeautify",
   'reaction': '📡',
   'category': 'mod-image'
@@ -1051,7 +1051,7 @@ ezra({
       'image': {
         'url': beautifiedImageUrl
       },
-      'caption': "*powered by LUCKY-MD*"
+      'caption': "*powered by RAY-MD*"
     }, {
       'quoted': messageInstance
     });
