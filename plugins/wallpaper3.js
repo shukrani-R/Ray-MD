@@ -4,9 +4,9 @@ Object.defineProperty(exports, "__esModule", {
   'value': true
 });
 const {
-  ezra
-} = require("../fredi/ezra");
-ezra({
+  ray
+} = require("../shukrani/ray");
+ray({
   'nomCom': "wallpaper3",
   'reaction': '🎞',
   'nomFichier': __filename
@@ -16,7 +16,7 @@ ezra({
     'image': {
       'url': "https://telegra.ph/file/97d3d23af7aff33934aea.jpg"
     },
-    'caption': "🚗𝗥𝗮𝗻𝗱𝗼𝗺 𝘄𝗮𝗹𝗹𝗽𝗮𝗽𝗲𝗿 \n\n 🚗Download it and set it to your wallpaper 𝗙𝗿𝗼𝗺 (LUCKY-𝗠𝗗)🚗MADE BY FREDIE 𝗧𝗘𝗖𝗛"
+    'caption': "🚗𝗥𝗮𝗻𝗱𝗼𝗺 𝘄𝗮𝗹𝗹𝗽𝗮𝗽𝗲𝗿 \n\n 🚗Download it and set it to your wallpaper 𝗙𝗿𝗼𝗺 (RAY-𝗠𝗗)🚗MADE BY SHUKRANI 𝗧𝗘𝗖𝗛"
   });
 });
 console.log("mon test");
