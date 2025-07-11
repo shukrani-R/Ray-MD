@@ -1,8 +1,8 @@
 const googleTTS = require('google-tts-api');
-const {ezra} = require("../fredi/ezra");
+const {ezra} = require("../shukrani/ray");
 
 
-ezra( {
+ray( {
   nomCom : "dit",
  categorie : "tts",
   reaction : "👄" },
@@ -25,7 +25,7 @@ console.log(url);
 }
 ) ;
 
-ezra( {
+ray( {
   nomCom : "itta",
  categorie : "tts",
   reaction : "👄" },
@@ -48,7 +48,7 @@ console.log(url);
 }
 ) ;
 
-ezra( {
+ray( {
   nomCom : "say",
  categorie : "tts",
   reaction : "👄" },
