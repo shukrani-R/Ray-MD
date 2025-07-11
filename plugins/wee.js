@@ -1,10 +1,10 @@
 const axios = require('axios');
 const fs = require('fs');
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const { writeFile } = require('fs/promises')
 
 // Commande waifu
-ezra({
+ray({
   nomCom: "waifu",
   categorie: "Weeb",
   reaction: "😤"
@@ -28,7 +28,7 @@ async (origineMessage, zk, commandeOptions) => {
 });
 
 // Commande neko
-ezra({
+ray({
   nomCom: "neko",
   categorie: "Weeb",
   reaction: "😺"
@@ -51,7 +51,7 @@ async (origineMessage, zk, commandeOptions) => {
 });
 
 // Commande shinobu
-ezra({
+ray({
   nomCom: "shinobu",
   categorie: "Weeb",
   reaction: "🦋"
@@ -74,7 +74,7 @@ async (origineMessage, zk, commandeOptions) => {
 });
 
 // Commande megumin
-ezra({
+ray({
   nomCom: "megumin",
   categorie: "Weeb",
   reaction: "😅"
@@ -98,7 +98,7 @@ async (origineMessage, zk, commandeOptions) => {
 
 
 
-ezra({
+ray({
   nomCom: "cosplay",
   categorie: "Weeb",
   reaction: "😤"
@@ -127,7 +127,7 @@ async (origineMessage, zk, commandeOptions) => {
 });
 
 
-ezra({nomCom:"couplepp",categorie: "Weeb",reaction : "💞"},async(dest,zk,commandeOptions)=>{ const {repondre , ms} = commandeOptions;
+ray({nomCom:"couplepp",categorie: "Weeb",reaction : "💞"},async(dest,zk,commandeOptions)=>{ const {repondre , ms} = commandeOptions;
     let api = 'https://smiling-hosiery-bear.cyclic.app/weeb/couplepp'
   try {
      repondre('she/he dont love you :)')
