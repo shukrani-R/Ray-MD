@@ -1,16 +1,16 @@
 const util = require('util');
 const fs = require('fs-extra');
-const { ezra } = require(__dirname + "/../fredi/ezra");
-const { format } = require(__dirname + "/../fredi/mesfonctions");
+const { ray } = require(__dirname + "/../shukrani/ray");
+const { format } = require(__dirname + "/../shukrani/mesfonctions");
 const os = require("os");
 const moment = require("moment-timezone");
 const s = require(__dirname + "/../set");
 const more = String.fromCharCode(8206);
 const readmore = more.repeat(4001);
 
-ezra({ nomCom: "fetal", categorie: "Menu" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "fetal", categorie: "Menu" }, async (dest, zk, commandeOptions) => {
     let { ms, repondre, prefixe, nomAuteurMessage, mybotpic } = commandeOptions;
-    let { cm } = require(__dirname + "/../fredi/ezra");
+    let { cm } = require(__dirname + "/../shukrani/ray");
     let coms = {};
     let mode = "public";
 
@@ -40,12 +40,12 @@ ezra({ nomCom: "fetal", categorie: "Menu" }, async (dest, zk, commandeOptions) =
 ┃⊛│◆ 𝙿𝚕𝚊𝚝𝚏𝚘𝚛𝚖 : ${os.platform()}
 ┃⊛│◆ 𝙲𝚛𝚎𝚊𝚝𝚘𝚛 : ғʀᴇᴅɪᴇ ᴛᴇᴄʜ
 ┃⊛│◆ 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 : ${cm.length}
-┃⊛│◆ 𝚃𝚑𝚎𝚖𝚎 : FRED
+┃⊛│◆ 𝚃𝚑𝚎𝚖𝚎 : RAYMOND
 ┃⊛└────••••────➻
 ╰─━━━━══──══━━━❂\n${readmore}
 `;
 
-    let menuMsg = `𝙻𝚞𝚌𝚔𝚢 𝙼𝚍 𝙲𝚖𝚍`;
+    let menuMsg = `Ray 𝙼𝚍 𝙲𝚖𝚍`;
     
     for (const cat in coms) {
         menuMsg += `
@@ -67,15 +67,15 @@ ezra({ nomCom: "fetal", categorie: "Menu" }, async (dest, zk, commandeOptions) =
     try {
         const senderName = nomAuteurMessage || message.from;  // Use correct variable for sender name
         await zk.sendMessage(dest, {
-            image: { url: `https://files.catbox.moe/idb19j.jpeg` },
+            image: { url: `https://files.catbox.moe/42b1sn.png` },
             caption: formattedInfo,
             contextInfo: { 
                 mentionedJid: [m.sender],
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363313124070136@newsletter',
-                    newsletterName: '@IT-frediezra',
+                    newsletterJid: '12036331312407016@newsletter',
+                    newsletterName: '@IT-shukraniray',
                     serverMessageId: 143
                 }
             }
