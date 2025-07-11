@@ -1,7 +1,7 @@
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const { Sticker, StickerTypes } = require('wa-sticker-formatter');
-const { ajouterOuMettreAJourJid, mettreAJourAction, verifierEtatJid } = require("../luckydatabase/antilien");
-const { atbajouterOuMettreAJourJid, atbverifierEtatJid } = require("../luckydatabase/antibot");
+const { ajouterOuMettreAJourJid, mettreAJourAction, verifierEtatJid } = require("../shukranidatabase/antilien");
+const { atbajouterOuMettreAJourJid, atbverifierEtatJid } = require("../shukranidatabase/antibot");
 const { search, download } = require("aptoide-scraper");
 const fs = require("fs-extra");
 const conf = require("../set");
@@ -9,7 +9,7 @@ const { default: axios } = require('axios');
 const cron = require("../luckydatabase/cron");
 const { exec } = require("child_process");
 
-ezra({ nomCom: "getallmembers", categorie: 'Group', reaction: "📣" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "getallmembers", categorie: 'Group', reaction: "📣" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, arg, verifGroupe, nomGroupe, infosGroupe, nomAuteurMessage, verifAdmin, superUser } = commandeOptions;
 
   if (!verifGroupe) return repondre("✋🏿 This command is reserved for groups ❌");
@@ -18,9 +18,9 @@ ezra({ nomCom: "getallmembers", categorie: 'Group', reaction: "📣" }, async (d
   let membresGroupe = verifGroupe && infosGroupe ? infosGroupe.participants || [] : [];
 
   let tag = `========================\n  
-        🌟 *LUCKY-MD GROUP MEMBERS GIDS* 🌟
+        🌟 *RAY-MD GROUP MEMBERS GIDS* 🌟
 ========================\n
-> regards frediezra®\n\n`;
+> regards shukranieray®\n\n`;
 
   const emoji = ['🦴', '👀', '😮‍💨', '❌', '✔️', '😇', '⚙️', '🔧', '🎊', '😡', '🙏🏿', '⛔️', '$', '😟', '🥵', '🐅'];
   const randomEmoji = emoji[Math.floor(Math.random() * emoji.length)];
@@ -47,7 +47,7 @@ ezra({ nomCom: "getallmembers", categorie: 'Group', reaction: "📣" }, async (d
 
 // ========================= TAG ADMINS COMMAND ========================= //
 
-ezra({ nomCom: "tagadmin", categorie: 'Group', reaction: "📣" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "tagadmin", categorie: 'Group', reaction: "📣" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, arg, verifGroupe, nomGroupe, infosGroupe, nomAuteurMessage, verifAdmin, superUser } = commandeOptions;
 
   if (!verifGroupe) return repondre("✋🏿 This command is reserved for groups ❌");
@@ -57,7 +57,7 @@ ezra({ nomCom: "tagadmin", categorie: 'Group', reaction: "📣" }, async (dest, 
   let adminsGroupe = membresGroupe.filter(membre => membre.isAdmin);
 
   let tag = `========================\n  
-        🌟 *LUCKY-MD* 🌟
+        🌟 *RAY-MD* 🌟
 ========================\n
 👥 Group : ${nomGroupe} 🚀 
 👤 Author : *${nomAuteurMessage}* 👋 
