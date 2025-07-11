@@ -74,7 +74,7 @@ ray({ nomCom: "menu1", categorie: "Menu" }, async (dest, zk, commandeOptions) =>
                     title: "RAY MD MENU LIST",
                     body: "Dont worry bro I have more tap to follow",
                     thumbnailUrl: "https://files.catbox.moe/42b1sn.png",
-                    sourceUrl: "https://github.com/shukrani-R/Ray-MD.git",
+                    sourceUrl: "https://whatsapp.com/channel/0029VbB16dt9hXEyw3bO1k0p",
                     mediaType: 1,
                     renderLargerThumbnail: true
                 }
