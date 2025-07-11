@@ -2,10 +2,10 @@
 // Non visible script 
 // Prepare yourself men don't disturb others
 
-const { ezra } = require("../fredi/ezra");
+const { ray } = require("../shukrani/ray");
 const axios = require("axios");
 
-ezra({ nomCom: "videologo", categorie: "Fledi-logo", reaction: "🔖" }, async (dest, zk, commandeOptions) => {
+ray({ nomCom: "videologo", categorie: "Ray-logo", reaction: "🔖" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, arg } = commandeOptions;
   const text = arg.join(" ");
 
@@ -28,10 +28,10 @@ D ☞ tiger 🐯 video logo
     const contextInfo = {
       mentionedJid: [ms.sender], // Mention the sender
       externalAdReply: {
-        title: "LUCKY MD",
-        body: "Pambe Kwa, Frediezra",
-        thumbnailUrl: "https://files.catbox.moe/7irwqn.jpeg",
-        sourceUrl: "https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f",
+        title: "RAY MD",
+        body: "Pambe Kwa, Shukraniray",
+        thumbnailUrl: "https://files.catbox.moe/b2uxhi.jpg",
+        sourceUrl: "https://whatsapp.com/channel/0029VbB16dt9hXEyw3bO1k0p",
         mediaType: 1,
         renderLargerThumbnail: true,
       },
