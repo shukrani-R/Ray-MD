@@ -34,7 +34,7 @@ module.exports.genererNomFichier = async (extension) => {
 /** ************ */
 module.exports.stick = async (buffer, author) => {
     var sticker = new Sticker(buffer, {
-        pack: 'LUCKY_MD',
+        pack: 'RAY_MD',
         author: author,
         type: StickerTypes.FULL,
         categories: ['🤩', '🎉'],
@@ -215,7 +215,7 @@ async function ajouterCommande() {
     /*const readDir = util.promisify(fs.readdir);
     const readFile = util.promisify(fs.readFile);
     //console.log("ch " + __dirname + '../')
-    var chemin = './luckycmd/'
+    var chemin = './plugins/'
     var nomFichier = await readDir(chemin)
   //console.log("installation des plugins ... ")
     nomFichier.forEach((fichier) => {
@@ -238,11 +238,11 @@ async function xlab() {
     const readDir = util.promisify(fs.readdir);
     const readFile = util.promisify(fs.readFile);
     //console.log("ch " + __dirname + '../')
-    var chemin = './luckycmd/';
+    var chemin = './plugins/';
     var nomFichier = await readDir(chemin);
     nomFichier.forEach((fichier) => {
         if (fichier.endsWith(".js")) {
-            var { commande } = require(__dirname + '/../luckycmd/' + fichier.split(".js")[0]);
+            var { commande } = require(__dirname + '/../plugins/' + fichier.split(".js")[0]);
             var infos;
             if (commande) {
                 infos = commande();
