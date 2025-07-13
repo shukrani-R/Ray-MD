@@ -1,47 +1,39 @@
-const { default: makeWASocket, useSingleFileAuthState, DisconnectReason } = require('@adiwajshing/baileys');
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = require('@adiwajshing/baileys');
 const P = require('pino');
 const fs = require('fs');
-const path = require('path');
-require('dotenv').config(); // Load .env file
+require('dotenv').config();
 const { Pool } = require('pg');
 
-// PostgreSQL connection
+// DB connect
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false // For hosted databases like Render
-  }
+  ssl: { rejectUnauthorized: false }
 });
 
-// Baileys Auth Setup
-const authFile = './session/creds.json';
-const { state, saveState } = useSingleFileAuthState(authFile);
+// Auth state
+const startRayMD = async () => {
+  const { state, saveCreds } = await useMultiFileAuthState('./session');
 
-// Start socket
-async function startRayMD() {
   const sock = makeWASocket({
     auth: state,
     printQRInTerminal: true,
     logger: P({ level: 'silent' }),
-    browser: ['Ray-MD', 'Safari', '1.0']
+    browser: ['Ray-MD', 'Chrome', '1.0']
   });
 
-  // Save session
-  sock.ev.on('creds.update', saveState);
+  sock.ev.on('creds.update', saveCreds);
 
-  // Connection update
   sock.ev.on('connection.update', (update) => {
     const { connection, lastDisconnect } = update;
     if (connection === 'close') {
       const shouldReconnect = (lastDisconnect?.error)?.output?.statusCode !== DisconnectReason.loggedOut;
-      console.log('Connection closed. Reconnecting...', shouldReconnect);
+      console.log('🛑 Connection closed.', shouldReconnect ? 'Reconnecting...' : 'Logged out');
       if (shouldReconnect) startRayMD();
     } else if (connection === 'open') {
       console.log('✅ Ray-MD Bot Connected Successfully!');
     }
   });
 
-  // Message handler
   sock.ev.on('messages.upsert', async ({ messages, type }) => {
     if (type !== 'notify') return;
     const msg = messages[0];
@@ -50,12 +42,10 @@ async function startRayMD() {
     const from = msg.key.remoteJid;
     const text = msg.message.conversation || msg.message.extendedTextMessage?.text || "";
 
-    // Sample command
     if (text.toLowerCase() === "ping") {
       await sock.sendMessage(from, { text: "🏓 Pong! Ray-MD is alive!" });
     }
 
-    // PostgreSQL usage example
     if (text.toLowerCase() === "dbtest") {
       try {
         const res = await pool.query('SELECT NOW()');
@@ -65,16 +55,6 @@ async function startRayMD() {
       }
     }
   });
-}
+};
 
-// Run bot
 startRayMD();
-
-// Auto reload on file save (optional dev trick)
-let file = require.resolve(__filename);
-fs.watchFile(file, () => {
-  fs.unwatchFile(file);
-  console.log(`🔁 Updating '${__filename}'...`);
-  delete require.cache[file];
-  require(file);
-});
