@@ -1,27 +1,10 @@
-version: '3.8'
-
+version: '3'
 services:
-  db:
-    image: postgres:14
-    container_name: ray_pg
-    restart: always
-    environment:
-      POSTGRES_USER: rayuser
-      POSTGRES_PASSWORD: raypass
-      POSTGRES_DB: raydb
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
-  bot:
+  ray-md:
     build: .
-    container_name: raybot
-    restart: unless-stopped
-    depends_on:
-      - db
-    environment:
-      DATABASE_URL: postgresql://ray:KRNPcl7sSC3pFzUyQ8psk7NmChQ1jo2O@dpg-d1q17lmr433s73dta75g-a.oregon-postgres.render.com/shukrani_pird
+    container_name: ray-md
+    ports:
+      - "3000:3000"
     volumes:
       - ./session:/usr/src/app/session
-
-volumes:
-  pgdata:
+    restart: always
