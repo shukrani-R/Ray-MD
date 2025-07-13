@@ -1,4 +1,4 @@
-# Use official Node.js image
+# Base image
 FROM node:18
 
 # Set working directory
@@ -10,13 +10,10 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy all files (source, audios, session, plugins, etc.)
+# Copy rest of the source code
 COPY . .
 
-# Create session dir if not exists (useful for QR-based bots)
-RUN mkdir -p session
-
-# Expose port (optional if using Express for QR site)
+# Expose port for Express
 EXPOSE 3000
 
 # Start the bot
