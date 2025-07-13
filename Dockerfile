@@ -1,7 +1,7 @@
-# Base image
+# Use official Node.js image
 FROM node:18
 
-# Create app directory
+# Set working directory
 WORKDIR /usr/src/app
 
 # Copy package files
@@ -10,11 +10,14 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy all source code
+# Copy all files (source, audios, session, plugins, etc.)
 COPY . .
 
-# Expose port if needed (e.g. Express app for QR)
+# Create session dir if not exists (useful for QR-based bots)
+RUN mkdir -p session
+
+# Expose port (optional if using Express for QR site)
 EXPOSE 3000
 
-# Run the bot
+# Start the bot
 CMD ["node", "control.js"]
