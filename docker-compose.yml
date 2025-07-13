@@ -19,7 +19,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://rayuser:raypass@db:5432/raydb
+      DATABASE_URL: postgresql://ray:KRNPcl7sSC3pFzUyQ8psk7NmChQ1jo2O@dpg-d1q17lmr433s73dta75g-a.oregon-postgres.render.com/shukrani_pird
     volumes:
       - ./session:/usr/src/app/session
 
