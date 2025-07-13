@@ -1,1 +1,23 @@
-
+{
+  "name": "ray-md",
+  "version": "1.0.0",
+  "description": "Ray-MD WhatsApp bot powered by Baileys",
+  "main": "control.js",
+  "scripts": {
+    "start": "node control.js"
+  },
+  "author": "Raymond Kimath",
+  "license": "MIT",
+  "dependencies": {
+    "@adiwajshing/baileys": "^6.6.0",
+    "dotenv": "^16.3.1",
+    "pino": "^8.17.0",
+    "qrcode-terminal": "^0.12.0",
+    "chalk": "^5.3.0",
+    "pg": "^8.11.3",
+    "ytdl-core": "^4.11.4",
+    "ffmpeg-static": "^5.1.0",
+    "node-fetch": "^2.6.12",
+    "wa-sticker-formatter": "^4.1.6"
+  }
+}
