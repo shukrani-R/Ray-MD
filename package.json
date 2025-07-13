@@ -9,7 +9,7 @@
   "author": "Raymond Kimath",
   "license": "MIT",
   "dependencies": {
-    "@adiwajshing/baileys": "^6.6.0",
+    "@adiwajshing/baileys": "^6.5.0",
     "dotenv": "^16.3.1",
     "pino": "^8.17.0",
     "qrcode-terminal": "^0.12.0",
