@@ -1,3 +1,5 @@
+global.crypto = require('crypto'); // ✅ FIX for Render Node.js
+
 const {
   default: makeWASocket,
   useMultiFileAuthState,
@@ -12,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-  res.send("✅ Ray-MD Pairing Server. Tumia /qr au /pair?phone=2557XXXXXX");
+  res.send("✅ Ray-MD Pairing Server. Tumia /qr au /pair?phone=2557XXXXXXX");
 });
 
 app.get("/qr", async (req, res) => {
@@ -30,7 +32,7 @@ app.get("/qr", async (req, res) => {
     const { qr, connection } = update;
     if (qr) {
       const qrImage = await qrcode.toDataURL(qr);
-      res.send(`<h2>Scan this QR in WhatsApp</h2><img src="${qrImage}" />`);
+      res.send(`<h2>📱 Scan this QR</h2><img src="${qrImage}" /><p>on your WhatsApp to login</p>`);
     }
     if (connection === "open") {
       await saveCreds();
@@ -56,7 +58,7 @@ app.get("/pair", async (req, res) => {
   sock.ev.on("connection.update", async (update) => {
     const { connection, pairingCode } = update;
     if (pairingCode) {
-      res.send(`<h2>✅ Pairing Code:</h2><p>${pairingCode}</p>`);
+      res.send(`<h2>🤝 Pairing Code:</h2><p><b>${pairingCode}</b></p><p>Use it on your phone number: ${phone}@s.whatsapp.net</p>`);
     }
     if (connection === 'open') {
       await saveCreds();
