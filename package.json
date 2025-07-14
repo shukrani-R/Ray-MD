@@ -1,17 +1,17 @@
 {
   "name": "ray-md-bot",
   "version": "1.0.0",
-  "description": "WhatsApp Bot using Baileys",
+  "description": "Ray-MD WhatsApp bot with Pairing and QR",
   "main": "control.js",
   "scripts": {
     "start": "node control.js"
   },
   "dependencies": {
-    "@adiwajshing/baileys": "^6.6.0",
+    "@adiwajshing/baileys": "github:fredietech/baileys",
+    "@hapi/boom": "^10.0.1",
+    "axios": "^1.6.0",
     "dotenv": "^16.3.1",
     "express": "^4.19.2",
-    "pino": "^8.17.0",
-    "axios": "^1.6.7",
-    "@hapi/boom": "^11.2.0"
+    "pino": "^8.17.0"
   }
 }
