@@ -1,4 +1,4 @@
-require('dotenv').config(); // Load .env variables
+require('dotenv').config();
 const express = require('express');
 const {
   default: makeWASocket,
@@ -10,7 +10,6 @@ const { Boom } = require('@hapi/boom');
 const P = require('pino');
 
 const app = express();
-
 let qrCodeString = 'QR not generated yet';
 let pairCodeText = 'Pairing code not ready';
 
@@ -29,18 +28,13 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🌍 Web Server running on port ${PORT}`));
 
-// Retry counter (optional)
-let reconnectAttempts = 0;
-const MAX_RECONNECTS = 3;
-
-// Start bot
 async function startRayMD() {
   const { state, saveCreds } = await useMultiFileAuthState('./session');
 
   const sock = makeWASocket({
     version: await fetchLatestBaileysVersion(),
     logger: P({ level: 'silent' }),
-    printQRInTerminal: true,
+    printQRInTerminal: false, // Send QR to browser
     browser: [process.env.BOT_NAME || 'Ray-MD', 'Chrome', '1.0.0'],
     auth: state,
   });
@@ -48,6 +42,8 @@ async function startRayMD() {
   sock.ev.on('creds.update', saveCreds);
 
   sock.ev.on('connection.update', (update) => {
+    console.log(update); // Log kila hatua ya connection
+
     const { connection, lastDisconnect, qr, pairingCode } = update;
 
     if (qr) qrCodeString = qr;
@@ -55,31 +51,17 @@ async function startRayMD() {
 
     if (connection === 'close') {
       const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
-      
-      // Log reason once
-      console.log(`❌ Connection closed. Reason: ${reason}`);
+      console.log('❌ Connection closed. Reason:', reason);
 
-      if (reason === DisconnectReason.loggedOut) {
-        console.log('🔐 Session logged out. Manual QR scan or reset required.');
-        return;
-      }
-
-      if (reason === 500) {
-        console.log('⚠️ WhatsApp server error (500). No automatic retry.');
-        return;
-      }
-
-      if (reconnectAttempts < MAX_RECONNECTS) {
-        reconnectAttempts++;
-        console.log(`🔁 Attempting reconnect (${reconnectAttempts}/${MAX_RECONNECTS})...`);
+      // Usijaribu ku-reconnect kwa error ya 500 au loggedOut
+      if (reason !== DisconnectReason.loggedOut && reason !== 500) {
         startRayMD();
       } else {
-        console.log('🚫 Max reconnection attempts reached.');
+        console.log('⚠️ WhatsApp server error (500) or logged out. No automatic retry.');
       }
     }
 
     if (connection === 'open') {
-      reconnectAttempts = 0; // Reset on successful connect
       console.log(`✅ Bot connected as ${process.env.OWNER_NUMBER || 'Unknown'}`);
     }
   });
