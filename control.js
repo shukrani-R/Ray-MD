@@ -1,18 +1,15 @@
-require('dotenv').config(); // 👈 load .env variables
+require('dotenv').config(); // Load .env variables
 const express = require('express');
-const makeWASocket = require('@adiwajshing/baileys').default;
-const { useSingleFileAuthState } = require('@adiwajshing/baileys');
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } = require('@adiwajshing/baileys');
 const { Boom } = require('@hapi/boom');
-
-const authFile = './session/creds.json';
-const { state, saveState } = useSingleFileAuthState(authFile);
+const P = require('pino');
 
 const app = express();
 
 let qrCodeString = 'QR not generated yet';
 let pairCodeText = 'Pairing code not ready';
 
-// Serve QR or Pair Code
+// Web view for pairing
 app.get('/', (req, res) => {
   res.send(`
     <html>
@@ -26,17 +23,21 @@ app.get('/', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🌍 Listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`🌍 Web Server running on port ${PORT}`));
 
-// Bot logic
+// Start bot
 async function startRayMD() {
+  const { state, saveCreds } = await useMultiFileAuthState('./session');
+
   const sock = makeWASocket({
-    auth: state,
+    version: await fetchLatestBaileysVersion(),
+    logger: P({ level: 'silent' }),
     printQRInTerminal: true,
-    browser: [process.env.BOT_NAME || 'Ray-MD', 'Chrome', '1.0.0']
+    browser: [process.env.BOT_NAME || 'Ray-MD', 'Chrome', '1.0.0'],
+    auth: state,
   });
 
-  sock.ev.on('creds.update', saveState);
+  sock.ev.on('creds.update', saveCreds);
 
   sock.ev.on('connection.update', (update) => {
     const { connection, lastDisconnect, qr, pairingCode } = update;
@@ -47,11 +48,11 @@ async function startRayMD() {
     if (connection === 'close') {
       const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
       console.log('❌ Connection closed. Reason:', reason);
-      if (reason !== 401) startRayMD();
+      if (reason !== DisconnectReason.loggedOut) startRayMD();
     }
 
     if (connection === 'open') {
-      console.log(`✅ Bot connected as ${process.env.OWNER_NUMBER}`);
+      console.log(`✅ Bot connected as ${process.env.OWNER_NUMBER || 'Unknown'}`);
     }
   });
 }
