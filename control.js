@@ -1,18 +1,15 @@
 require('dotenv').config();
 const express = require('express');
-const {
-  default: makeWASocket,
-  useMultiFileAuthState,
-  DisconnectReason,
-  fetchLatestBaileysVersion
-} = require('@adiwajshing/baileys');
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } = require('@adiwajshing/baileys');
 const { Boom } = require('@hapi/boom');
 const P = require('pino');
 
 const app = express();
+
 let qrCodeString = 'QR not generated yet';
 let pairCodeText = 'Pairing code not ready';
 
+// Web interface
 app.get('/', (req, res) => {
   res.send(`
     <html>
@@ -30,11 +27,12 @@ app.listen(PORT, () => console.log(`🌍 Web Server running on port ${PORT}`));
 
 async function startRayMD() {
   const { state, saveCreds } = await useMultiFileAuthState('./session');
+  const { version } = await fetchLatestBaileysVersion(); // ✅ FIX: extract only the version array
 
   const sock = makeWASocket({
-    version: await fetchLatestBaileysVersion(),
-    logger: P({ level: 'silent' }),
-    printQRInTerminal: false, // Send QR to browser
+    version,
+    logger: P({ level: 'silent' }), // silent mode
+    printQRInTerminal: false, // don't spam terminal
     browser: [process.env.BOT_NAME || 'Ray-MD', 'Chrome', '1.0.0'],
     auth: state,
   });
@@ -42,8 +40,6 @@ async function startRayMD() {
   sock.ev.on('creds.update', saveCreds);
 
   sock.ev.on('connection.update', (update) => {
-    console.log(update); // Log kila hatua ya connection
-
     const { connection, lastDisconnect, qr, pairingCode } = update;
 
     if (qr) qrCodeString = qr;
@@ -51,13 +47,11 @@ async function startRayMD() {
 
     if (connection === 'close') {
       const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
-      console.log('❌ Connection closed. Reason:', reason);
-
-      // Usijaribu ku-reconnect kwa error ya 500 au loggedOut
-      if (reason !== DisconnectReason.loggedOut && reason !== 500) {
-        startRayMD();
-      } else {
-        console.log('⚠️ WhatsApp server error (500) or logged out. No automatic retry.');
+      if (reason !== DisconnectReason.loggedOut) {
+        console.log(`❌ Connection closed. Reason: ${reason}`);
+        // avoid reconnecting forever if WhatsApp server errors
+        if (reason !== 500) startRayMD();
+        else console.log("⚠️ WhatsApp server error (500) or logged out. No automatic retry.");
       }
     }
 
