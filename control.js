@@ -1,3 +1,5 @@
+global.crypto = require('crypto'); // ✅ FIX for Render Node.js
+
 const {
   default: makeWASocket,
   useMultiFileAuthState,
@@ -19,7 +21,7 @@ async function startBot() {
 
   sock.ev.on('creds.update', saveCreds);
 
-  sock.ev.on('messages.upsert', async ({ messages, type }) => {
+  sock.ev.on('messages.upsert', async ({ messages }) => {
     const msg = messages[0];
     if (!msg.message || msg.key.fromMe) return;
 
@@ -27,11 +29,11 @@ async function startBot() {
     const body = msg.message.conversation || msg.message.extendedTextMessage?.text || '';
 
     if (body.toLowerCase() === 'menu') {
-      await sock.sendMessage(from, { text: '🤖 Ray-MD bot is active!' });
+      await sock.sendMessage(from, { text: '👋 Ray-MD WhatsApp Bot is active and running!' });
     }
   });
 
-  console.log("🤖 Ray-MD Bot is running...");
+  console.log("🤖 Ray-MD bot is running...");
 }
 
 startBot();
