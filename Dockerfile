@@ -1,18 +1,18 @@
 # Base image
 FROM node:18
 
-# Set working directory
+# Working directory
 WORKDIR /usr/src/app
 
-# Copy package files and install dependencies
-COPY package*.json ./
+# Copy package files and install deps
+COPY package.json ./
 RUN npm install
 
-# Copy the rest of the source code
+# Copy rest of the code
 COPY . .
 
-# Expose port for Express server
+# Expose port
 EXPOSE 3000
 
-# Command to run the bot
-CMD ["node", "control.js"]
+# Start app
+CMD ["npm", "start"]
