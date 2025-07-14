@@ -59,6 +59,31 @@ async function startRayMD() {
       console.log(`✅ Bot connected as ${process.env.OWNER_NUMBER || 'Unknown'}`);
     }
   });
+
+  const fs = require('fs');
+const path = require('path');
+const { cm } = require('./shukrani/ray');
+
+// Auto-load commands from plugins/
+const pluginsPath = path.join(__dirname, 'plugins');
+fs.readdirSync(pluginsPath).forEach(file => {
+  if (file.endsWith('.js')) {
+    require(path.join(pluginsPath, file));
+  }
+});
+
+// Sample usage: check for command in incoming message
+async function handleCommand(sock, m) {
+  const body = m.body?.toLowerCase()?.trim();
+
+  for (const cmd of cm) {
+    const names = [cmd.nomCom, ...(cmd.aliases || [])];
+    if (names.includes(body)) {
+      await sock.sendMessage(m.key.remoteJid, { react: { text: cmd.reaction, key: m.key } });
+      await cmd.fonction(sock, m, { repondre: (msg) => sock.sendMessage(m.key.remoteJid, { text: msg }, { quoted: m }) });
+      return;
+    }
+  }
 }
 
 startRayMD();
