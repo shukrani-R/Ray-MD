@@ -1,15 +1,17 @@
 {
-  "name": "ray-md-pairing",
+  "name": "ray-md-bot",
   "version": "1.0.0",
+  "description": "WhatsApp Bot using Baileys",
   "main": "control.js",
   "scripts": {
     "start": "node control.js"
   },
   "dependencies": {
-    "@adiwajshing/baileys": "^6.7.2",
-    "@hapi/boom": "^10.0.1",
+    "@adiwajshing/baileys": "^6.6.0",
     "dotenv": "^16.3.1",
     "express": "^4.19.2",
-    "pino": "^8.19.0"
+    "pino": "^8.17.0",
+    "axios": "^1.6.7",
+    "@hapi/boom": "^11.2.0"
   }
 }
