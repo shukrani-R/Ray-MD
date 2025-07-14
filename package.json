@@ -4,14 +4,16 @@
   "description": "Ray-MD WhatsApp bot with Pairing and QR",
   "main": "control.js",
   "scripts": {
-    "start": "node control.js"
+    "start": "node control.js",
+    "pair": "node index.js"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "^5.0.0",
+    "@whiskeysockets/baileys": "^6.7.1",
     "@hapi/boom": "^10.0.1",
     "axios": "^1.6.0",
     "dotenv": "^16.3.1",
     "express": "^4.19.2",
-    "pino": "^8.17.0"
+    "pino": "^8.17.0",
+    "qrcode": "^1.5.3"
   }
 }
