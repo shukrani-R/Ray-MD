@@ -4,9 +4,6 @@ FROM node:18
 # Set working directory
 WORKDIR /usr/src/app
 
-# Copy .env file first to container
-COPY .env .env
-
 # Copy package files and install dependencies
 COPY package*.json ./
 RUN npm install
