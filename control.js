@@ -1,6 +1,11 @@
 require('dotenv').config(); // Load .env variables
 const express = require('express');
-const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } = require('@adiwajshing/baileys');
+const {
+  default: makeWASocket,
+  useMultiFileAuthState,
+  DisconnectReason,
+  fetchLatestBaileysVersion
+} = require('@adiwajshing/baileys');
 const { Boom } = require('@hapi/boom');
 const P = require('pino');
 
@@ -9,7 +14,6 @@ const app = express();
 let qrCodeString = 'QR not generated yet';
 let pairCodeText = 'Pairing code not ready';
 
-// Web view for pairing
 app.get('/', (req, res) => {
   res.send(`
     <html>
@@ -24,6 +28,10 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🌍 Web Server running on port ${PORT}`));
+
+// Retry counter (optional)
+let reconnectAttempts = 0;
+const MAX_RECONNECTS = 3;
 
 // Start bot
 async function startRayMD() {
@@ -47,11 +55,31 @@ async function startRayMD() {
 
     if (connection === 'close') {
       const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
-      console.log('❌ Connection closed. Reason:', reason);
-      if (reason !== DisconnectReason.loggedOut) startRayMD();
+      
+      // Log reason once
+      console.log(`❌ Connection closed. Reason: ${reason}`);
+
+      if (reason === DisconnectReason.loggedOut) {
+        console.log('🔐 Session logged out. Manual QR scan or reset required.');
+        return;
+      }
+
+      if (reason === 500) {
+        console.log('⚠️ WhatsApp server error (500). No automatic retry.');
+        return;
+      }
+
+      if (reconnectAttempts < MAX_RECONNECTS) {
+        reconnectAttempts++;
+        console.log(`🔁 Attempting reconnect (${reconnectAttempts}/${MAX_RECONNECTS})...`);
+        startRayMD();
+      } else {
+        console.log('🚫 Max reconnection attempts reached.');
+      }
     }
 
     if (connection === 'open') {
+      reconnectAttempts = 0; // Reset on successful connect
       console.log(`✅ Bot connected as ${process.env.OWNER_NUMBER || 'Unknown'}`);
     }
   });
