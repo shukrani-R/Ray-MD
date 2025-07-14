@@ -1,24 +1,24 @@
-require('dotenv').config(); // Load .env variables
+require('dotenv').config();
 const express = require('express');
 const P = require('pino');
 const { Boom } = require('@hapi/boom');
 const {
   default: makeWASocket,
   useMultiFileAuthState,
-  DisconnectReason,
-  fetchLatestBaileysVersion
+  fetchLatestBaileysVersion,
+  DisconnectReason
 } = require('@adiwajshing/baileys');
 
 const app = express();
+
 let qrCodeString = 'QR not generated yet';
 let pairCodeText = 'Pairing code not ready';
 
-// Web interface
 app.get('/', (req, res) => {
   res.send(`
     <html>
       <body style="text-align:center;font-family:sans-serif;margin-top:50px;">
-        <h2>${process.env.BOT_NAME || 'SHUKRANI'} Bot</h2>
+        <h2>${process.env.BOT_NAME || 'Ray-MD'} Bot</h2>
         <p><strong>Pairing Code:</strong><br>${pairCodeText}</p>
         <p><strong>QR String:</strong><br>${qrCodeString}</p>
       </body>
@@ -26,19 +26,20 @@ app.get('/', (req, res) => {
   `);
 });
 
-// Start Express server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🌍 Web Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`🌍 Web Server running on port ${PORT}`);
+});
 
-// Start bot
-async function startBot() {
+async function startRayMD() {
   const { state, saveCreds } = await useMultiFileAuthState('./session');
+  const { version } = await fetchLatestBaileysVersion();
 
   const sock = makeWASocket({
-    version: await fetchLatestBaileysVersion(),
+    version,
     logger: P({ level: 'silent' }),
     printQRInTerminal: true,
-    browser: [process.env.BOT_NAME || 'SHUKRANI', 'Chrome', '1.0.0'],
+    browser: [process.env.BOT_NAME || 'Ray-MD', 'Chrome', '1.0.0'],
     auth: state
   });
 
@@ -51,27 +52,27 @@ async function startBot() {
     if (pairingCode) pairCodeText = pairingCode;
 
     if (connection === 'close') {
-      const code = new Boom(lastDisconnect?.error)?.output?.statusCode;
+      const reasonCode = new Boom(lastDisconnect?.error)?.output?.statusCode;
+      console.log(`❌ Connection closed. Reason: ${reasonCode}`);
 
-      console.log(`❌ Connection closed. Reason: ${code}`);
-
-      if (code === DisconnectReason.loggedOut) {
-        console.log('🛑 Logged out from WhatsApp Web. Please re-scan.');
-      } else if (code === 500) {
-        console.log('⚠️ WhatsApp server error (500) or logged out. No automatic retry.');
-        // optional: delay or manual restart
-      } else {
-        console.log('🔁 Trying to reconnect...');
-        startBot(); // safe retry
+      if (reasonCode === DisconnectReason.loggedOut) {
+        console.log("⚠️ You've been logged out. Please pair again.");
+        return;
       }
+
+      if (reasonCode >= 500) {
+        console.log("⚠️ WhatsApp server error. No automatic retry.");
+        return;
+      }
+
+      console.log("🔄 Reconnecting...");
+      startRayMD();
     }
 
     if (connection === 'open') {
-      console.log(`✅ Bot connected as ${process.env.OWNER_NUMBER || 'Unknown Owner'}`);
+      console.log(`✅ Bot connected as ${process.env.OWNER_NUMBER || 'Unknown'}`);
     }
   });
-
-  // You can extend here: plugins loader, events, commands etc.
 }
 
-startBot();
+startRayMD();
