@@ -1,19 +1,27 @@
 {
   "name": "ray-md-bot",
   "version": "1.0.0",
-  "description": "Ray-MD WhatsApp bot with Pairing and QR",
+  "description": "Ray-MD WhatsApp bot using Baileys and PostgreSQL",
   "main": "control.js",
   "scripts": {
-    "start": "node control.js",
-    "pair": "node index.js"
+    "start": "node control.js"
   },
+  "keywords": [
+    "whatsapp",
+    "baileys",
+    "bot",
+    "ray-md",
+    "postgres"
+  ],
+  "author": "Raymond Kimath",
+  "license": "MIT",
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.7.1",
-    "@hapi/boom": "^10.0.1",
-    "axios": "^1.6.0",
-    "dotenv": "^16.3.1",
+    "@whiskeysockets/baileys": "^5.0.0",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "pino": "^8.17.0",
-    "qrcode": "^1.5.3"
+    "pg": "^8.11.3",
+    "pino": "^8.19.0",
+    "@hapi/boom": "^10.0.1"
   }
 }
