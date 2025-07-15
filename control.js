@@ -1,39 +1,83 @@
-global.crypto = require('crypto'); // ✅ FIX for Render Node.js
-
-const {
-  default: makeWASocket,
-  useMultiFileAuthState,
-  fetchLatestBaileysVersion
-} = require('@whiskeysockets/baileys');
-
+require('dotenv').config(); // Load env
+const express = require('express');
+const { Pool } = require('pg'); // PostgreSQL
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } = require('@adiwajshing/baileys');
+const { Boom } = require('@hapi/boom');
 const P = require('pino');
 
-async function startBot() {
+const app = express();
+
+let qrCodeString = 'QR not generated yet';
+let pairCodeText = 'Pairing code not ready';
+
+// Initialize PostgreSQL
+let dbConnected = false;
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Required for Render PostgreSQL
+  },
+});
+pool.connect()
+  .then(() => {
+    dbConnected = true;
+    console.log("✅ PostgreSQL connected");
+  })
+  .catch(err => {
+    console.error("❌ PostgreSQL error:", err.message);
+  });
+
+// Web interface for QR/pair
+app.get('/', (req, res) => {
+  res.send(`
+    <html>
+      <body style="text-align:center;font-family:sans-serif;margin-top:50px;">
+        <h2>${process.env.BOT_NAME || 'Ray-MD'} Bot</h2>
+        <p><strong>Pairing Code:</strong><br>${pairCodeText}</p>
+        <p><strong>QR String:</strong><br>${qrCodeString}</p>
+        <p style="margin-top:20px;color:gray">${dbConnected ? '🟢 DB Connected' : '🔴 DB Not Connected'}</p>
+      </body>
+    </html>
+  `);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🌍 Web Server running on port ${PORT}`));
+
+// Start WhatsApp bot
+async function startRayMD() {
   const { state, saveCreds } = await useMultiFileAuthState('./session');
-  const { version } = await fetchLatestBaileysVersion();
 
   const sock = makeWASocket({
-    logger: P({ level: 'info' }),
-    printQRInTerminal: false,
+    version: await fetchLatestBaileysVersion(),
+    logger: P({ level: 'silent' }),
+    printQRInTerminal: true,
+    browser: [process.env.BOT_NAME || 'Ray-MD', 'Chrome', '1.0.0'],
     auth: state,
-    version
   });
 
   sock.ev.on('creds.update', saveCreds);
 
-  sock.ev.on('messages.upsert', async ({ messages }) => {
-    const msg = messages[0];
-    if (!msg.message || msg.key.fromMe) return;
+  sock.ev.on('connection.update', (update) => {
+    const { connection, lastDisconnect, qr, pairingCode } = update;
 
-    const from = msg.key.remoteJid;
-    const body = msg.message.conversation || msg.message.extendedTextMessage?.text || '';
+    if (qr) qrCodeString = qr;
+    if (pairingCode) pairCodeText = pairingCode;
 
-    if (body.toLowerCase() === 'menu') {
-      await sock.sendMessage(from, { text: '👋 Ray-MD WhatsApp Bot is active and running!' });
+    if (connection === 'close') {
+      const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
+      console.log('❌ Connection closed. Reason:', reason);
+      if (reason !== DisconnectReason.loggedOut && reason !== 500) {
+        startRayMD(); // Retry connection
+      } else {
+        console.log("⚠️ Not retrying due to critical disconnect");
+      }
+    }
+
+    if (connection === 'open') {
+      console.log(`✅ Bot connected as ${process.env.OWNER_NUMBER || 'Unknown'}`);
     }
   });
-
-  console.log("🤖 Ray-MD bot is running...");
 }
 
-startBot();
+startRayMD();
