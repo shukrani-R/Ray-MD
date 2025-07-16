@@ -1,0 +1,61 @@
+<!-- views/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shukrani-MD Pairing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 40px;
+    }
+    h2 {
+      color: #333;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    img {
+      border-radius: 10px;
+    }
+    #paircode {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔗 Connect to Shukrani-MD</h2>
+
+  <div class="card">
+    <h3>📸 Scan QR Code</h3>
+    <img src="/qr" width="250" height="250" alt="QR Code" />
+  </div>
+
+  <div class="card">
+    <h3>🔢 Or Use Pairing Code</h3>
+    <div id="paircode">Loading...</div>
+  </div>
+
+  <script>
+    fetch('/paircode')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('paircode').innerText =
+          data.pairCode || 'Pairing code not available yet';
+      })
+      .catch(() => {
+        document.getElementById('paircode').innerText = 'Error loading code';
+      });
+  </script>
+</body>
+</html>
