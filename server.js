@@ -1,44 +1,60 @@
-// server.js
 import express from 'express'
 import { createServer } from 'http'
+import path from 'path'
+import { Socket } from 'socket.io'
 import { toBuffer } from 'qrcode'
 import fetch from 'node-fetch'
 
-let _qr = null
-let _pairCode = null
+function connect(conn, PORT) {
+  let app = (global.app = express())
+  console.log(app)
+  let server = (global.server = createServer(app))
+  // app.use(express.static(path.join(__dirname, 'views')))
+  let _qr = 'invalid'
 
-function connect(conn, PORT = 3000) {
-  const app = express()
-  const server = createServer(app)
-
-  // Baileys: sikiliza QR na Pairing Code
-  conn.ev.on('connection.update', ({ qr, pairingCode }) => {
+  conn.ev.on('connection.update', function appQR({ qr }) {
     if (qr) _qr = qr
-    if (pairingCode) _pairCode = pairingCode
   })
 
-  // Serve static HTML (index.html)
-  app.use(express.static('views'))
-
-  // QR code as PNG
-  app.get('/qr', async (req, res) => {
-    if (!_qr) return res.status(503).send('QR not available yet')
-    res.setHeader('Content-Type', 'image/png')
+  app.use(async (req, res) => {
+    res.setHeader('content-type', 'image/png')
     res.end(await toBuffer(_qr))
   })
 
-  // Pairing code as JSON
-  app.get('/paircode', (req, res) => {
-    if (!_pairCode) return res.status(503).json({ pairCode: null })
-    res.json({ pairCode: _pairCode })
+  // let io = new Socket(server)
+  // io.on('connection', socket => {
+  //     let { unpipeEmit } = pipeEmit(conn, socket, 'conn-')
+  //     socket.on('disconnect', unpipeEmit)
+  // })
+
+  server.listen(PORT, () => {
+    console.log('App listened on port', PORT)
+    if (opts['keepalive']) keepAlive()
   })
+}
 
-  // KeepAlive (optional for Render/Repl)
-  setInterval(() => {
-    fetch(`https://yourdomain.com/`).catch(() => {})
-  }, 1000 * 60 * 5)
+function pipeEmit(event, event2, prefix = '') {
+  let old = event.emit
+  event.emit = function (event, ...args) {
+    old.emit(event, ...args)
+    event2.emit(prefix + event, ...args)
+  }
+  return {
+    unpipeEmit() {
+      event.emit = old
+    },
+  }
+}
 
-  server.listen(PORT, () => console.log('Server running on port', PORT))
+function keepAlive() {
+  const url = `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`
+  if (/(\/\/|\.)undefined\./.test(url)) return
+  setInterval(
+    () => {
+      fetch(url).catch(console.error)
+    },
+    5 * 1000 * 60
+  )
 }
 
 export default connect
