@@ -1,60 +1,46 @@
-import express from 'express'
-import { createServer } from 'http'
-import path from 'path'
-import { Socket } from 'socket.io'
-import { toBuffer } from 'qrcode'
-import fetch from 'node-fetch'
+const express = require('express');
+const QRCode = require('qrcode');
+const app = express();
+const fs = require('fs');
+const path = require('path');
 
-function connect(conn, PORT) {
-  let app = (global.app = express())
-  console.log(app)
-  let server = (global.server = createServer(app))
-  // app.use(express.static(path.join(__dirname, 'views')))
-  let _qr = 'invalid'
+// Path ya faili ya QR ambayo Baileys anaandika (ya muda mfupi)
+const QR_PATH = path.join(__dirname, 'auth/qr.txt');
 
-  conn.ev.on('connection.update', function appQR({ qr }) {
-    if (qr) _qr = qr
-  })
-
-  app.use(async (req, res) => {
-    res.setHeader('content-type', 'image/png')
-    res.end(await toBuffer(_qr))
-  })
-
-  // let io = new Socket(server)
-  // io.on('connection', socket => {
-  //     let { unpipeEmit } = pipeEmit(conn, socket, 'conn-')
-  //     socket.on('disconnect', unpipeEmit)
-  // })
-
-  server.listen(PORT, () => {
-    console.log('App listened on port', PORT)
-    if (opts['keepalive']) keepAlive()
-  })
-}
-
-function pipeEmit(event, event2, prefix = '') {
-  let old = event.emit
-  event.emit = function (event, ...args) {
-    old.emit(event, ...args)
-    event2.emit(prefix + event, ...args)
+app.get('/qr', async (req, res) => {
+  const username = req.query.user || '👋 Karibu!';
+  
+  if (!fs.existsSync(QR_PATH)) {
+    return res.status(503).send('⏳ QR code haijapatikana bado. Tafadhali subiri...');
   }
-  return {
-    unpipeEmit() {
-      event.emit = old
-    },
+
+  const qrString = fs.readFileSync(QR_PATH, 'utf-8').trim();
+
+  try {
+    const qrImage = await QRCode.toDataURL(qrString);
+    return res.send(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>WhatsApp Pairing QR</title>
+          <style>
+            body { font-family: sans-serif; text-align: center; background: #f4f4f4; padding-top: 40px; }
+            h1 { font-size: 22px; color: #333; }
+            img { margin-top: 20px; border: 6px solid #ccc; border-radius: 10px; }
+          </style>
+        </head>
+        <body>
+          <h1>${username}, scan QR kuunganisha na WhatsApp</h1>
+          <img src="${qrImage}" alt="WhatsApp QR Code" />
+          <p style="margin-top: 20px; color: #888;">QR code hubadilika kila sekunde chache. Hakikisha unascann kwa haraka.</p>
+        </body>
+      </html>
+    `);
+  } catch (err) {
+    console.error("QR Error:", err);
+    return res.status(500).send('🚫 Hitilafu katika kutengeneza QR');
   }
-}
+});
 
-function keepAlive() {
-  const url = `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`
-  if (/(\/\/|\.)undefined\./.test(url)) return
-  setInterval(
-    () => {
-      fetch(url).catch(console.error)
-    },
-    5 * 1000 * 60
-  )
-}
-
-export default connect
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`✅ QR server running on port ${PORT}`));
