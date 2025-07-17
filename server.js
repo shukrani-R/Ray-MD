@@ -1,15 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const QRCode = require('qrcode');
-const app = express();
 const fs = require('fs');
 const path = require('path');
 
-// Path ya faili ya QR ambayo Baileys anaandika (ya muda mfupi)
+const app = express();
 const QR_PATH = path.join(__dirname, 'auth/qr.txt');
+const PAIR_PATH = path.join(__dirname, 'auth/paircode.txt');
 
+// Serve QR as HTML
 app.get('/qr', async (req, res) => {
   const username = req.query.user || '👋 Karibu!';
-  
+
   if (!fs.existsSync(QR_PATH)) {
     return res.status(503).send('⏳ QR code haijapatikana bado. Tafadhali subiri...');
   }
@@ -30,9 +32,9 @@ app.get('/qr', async (req, res) => {
           </style>
         </head>
         <body>
-          <h1>${username}, scan QR kuunganisha na WhatsApp</h1>
-          <img src="${qrImage}" alt="WhatsApp QR Code" />
-          <p style="margin-top: 20px; color: #888;">QR code hubadilika kila sekunde chache. Hakikisha unascann kwa haraka.</p>
+          <h1>${username}, scan QR kuunganisha WhatsApp</h1>
+          <img src="${qrImage}" alt="QR Code" />
+          <p style="margin-top: 20px; color: #888;">QR hubadilika kila sekunde chache. Hakikisha unascann haraka.</p>
         </body>
       </html>
     `);
@@ -42,5 +44,16 @@ app.get('/qr', async (req, res) => {
   }
 });
 
+// Serve Pair Code
+app.get('/paircode', (req, res) => {
+  if (!fs.existsSync(PAIR_PATH)) {
+    return res.status(503).send('⏳ Pair code haijapatikana bado.');
+  }
+
+  const pairCode = fs.readFileSync(PAIR_PATH, 'utf-8').trim();
+  return res.send(`<h2 style="font-family:sans-serif;text-align:center;margin-top:50px;">🔢 Pair Code: ${pairCode}</h2>`);
+});
+
+// Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`✅ QR server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🌍 Pairing Server running on port ${PORT}`));
