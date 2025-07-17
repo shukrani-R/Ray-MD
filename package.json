@@ -1,7 +1,7 @@
 {
   "name": "ray_md",
   "version": "2.0.0",
-  "description": "WhatsApp Bot using Baileys",
+  "description": "WhatsApp Bot using Baileys with Pairing Code Generator",
   "main": "control.js",
   "type": "commonjs",
   "scripts": {
@@ -10,14 +10,18 @@
     "shukrani": "pm2 start shukrani.js --attach",
     "start": "npm run ray",
     "test": "node --check control.js",
-    "build": "tsc"
+    "build": "tsc",
+    "pairing": "node server.js"  // 👈 pairing site runner
   },
   "keywords": [
     "bot",
     "whatsapp",
     "baileys",
     "ray-md",
-    "shukrani"
+    "shukrani",
+    "pairing",
+    "qr-code",
+    "whatsapp-bot"
   ],
   "author": "shukraniray",
   "license": "ISC",
