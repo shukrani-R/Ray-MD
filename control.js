@@ -5,11 +5,16 @@ const fs = require('fs');
 const { default: makeWASocket, useMultiFileAuthState, usePairingCode, fetchLatestBaileysVersion } = require('@whiskeysockets/baileys');
 const P = require('pino');
 
+// Initialize the app
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// HTML form ya kuingiza namba
+// Paths for storing pairing code and QR
+const QR_PATH = path.join(__dirname, 'auth', 'qr.txt');
+const PAIR_PATH = path.join(__dirname, 'auth', 'paircode.txt');
+
+// Display the HTML form for entering a phone number
 app.get('/', (req, res) => {
   res.send(`
     <html>
@@ -25,11 +30,12 @@ app.get('/', (req, res) => {
   `);
 });
 
-// Kipokea namba na kutoa pairing code
+// Handle phone number input and generate pairing code
 app.post('/generate', async (req, res) => {
   const phone = req.body.phone;
 
-  if (!phone || !phone.startsWith('2')) {
+  // Validate phone number
+  if (!phone || !phone.startsWith('255')) {
     return res.send("❌ Tafadhali weka namba sahihi ya kimataifa (mfano: 2557xxxxxxx)");
   }
 
@@ -37,6 +43,7 @@ app.post('/generate', async (req, res) => {
   if (!fs.existsSync(sessionPath)) fs.mkdirSync(sessionPath, { recursive: true });
 
   try {
+    // Set up WhatsApp session with Baileys
     const { state, saveCreds } = await useMultiFileAuthState(sessionPath);
 
     const sock = makeWASocket({
@@ -49,8 +56,13 @@ app.post('/generate', async (req, res) => {
 
     sock.ev.on('creds.update', saveCreds);
 
+    // Generate pairing code
     const pairingCode = await usePairingCode(sock, phone);
 
+    // Save pairing code to file
+    fs.writeFileSync(PAIR_PATH, pairingCode);
+    
+    // Respond with generated pairing code
     res.send(`
       <html>
         <body style="text-align:center;font-family:sans-serif;margin-top:50px;">
@@ -66,6 +78,32 @@ app.post('/generate', async (req, res) => {
   }
 });
 
+// Display the QR code
+app.get('/qr', async (req, res) => {
+  try {
+    if (!fs.existsSync(QR_PATH)) {
+      return res.status(503).send('⏳ QR code haijapatikana bado. Tafadhali subiri...');
+    }
+    
+    const qrCode = fs.readFileSync(QR_PATH, 'utf-8').trim();
+    res.setHeader('Content-Type', 'image/png');
+    res.end(await QRCode.toBuffer(qrCode));
+  } catch (err) {
+    console.error("❌ QR error:", err);
+    res.status(500).send('🚫 Hitilafu katika kutengeneza QR');
+  }
+});
+
+// Keep alive the server with periodic fetch
+setInterval(() => {
+  try {
+    fetch(`https://${process.env.RENDER_EXTERNAL_URL || 'yourrender.onrender.com'}/`).catch(() => {});
+  } catch (err) {
+    console.warn("⚠️ Keep-alive fetch failed:", err.message);
+  }
+}, 1000 * 60 * 5);
+
+// Start the Express server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
