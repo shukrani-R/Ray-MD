@@ -1,59 +1,69 @@
+// server.js au pairing.js
 require('dotenv').config();
 const express = require('express');
-const QRCode = require('qrcode');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
+const { default: makeWASocket, useMultiFileAuthState, usePairingCode, fetchLatestBaileysVersion } = require('@whiskeysockets/baileys');
+const P = require('pino');
 
 const app = express();
-const QR_PATH = path.join(__dirname, 'auth/qr.txt');
-const PAIR_PATH = path.join(__dirname, 'auth/paircode.txt');
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Serve QR as HTML
-app.get('/qr', async (req, res) => {
-  const username = req.query.user || '👋 Karibu!';
+app.get('/', (req, res) => {
+  res.send(`
+    <html>
+      <body style="text-align:center;font-family:sans-serif;margin-top:50px;">
+        <h2>🤖 SHUKRANI-MD PAIRING</h2>
+        <form action="/generate" method="POST">
+          <input name="phone" placeholder="Ingiza namba yako ya WhatsApp (mfano: 255712345678)" required style="padding:10px; font-size:16px; width:300px;" />
+          <br/><br/>
+          <button type="submit" style="padding:10px 20px; font-size:16px;">🔄 Generate Pairing Code</button>
+        </form>
+      </body>
+    </html>
+  `);
+});
 
-  if (!fs.existsSync(QR_PATH)) {
-    return res.status(503).send('⏳ QR code haijapatikana bado. Tafadhali subiri...');
+app.post('/generate', async (req, res) => {
+  const phone = req.body.phone;
+  if (!phone || !phone.startsWith('2')) {
+    return res.send("❌ Tafadhali weka namba sahihi ya kimataifa (mfano: 2557xxxxxxx)");
   }
 
-  const qrString = fs.readFileSync(QR_PATH, 'utf-8').trim();
+  const sessionPath = path.join(__dirname, 'sessions', phone);
+  if (!fs.existsSync(sessionPath)) fs.mkdirSync(sessionPath, { recursive: true });
 
   try {
-    const qrImage = await QRCode.toDataURL(qrString);
-    return res.send(`
-      <!DOCTYPE html>
+    const { state, saveCreds } = await useMultiFileAuthState(sessionPath);
+    const sock = makeWASocket({
+      version: await fetchLatestBaileysVersion(),
+      logger: P({ level: 'silent' }),
+      auth: state,
+      printQRInTerminal: false,
+      browser: ['SHUKRANI', 'Chrome', '1.0.0'],
+    });
+
+    sock.ev.on('creds.update', saveCreds);
+
+    const pairingCode = await usePairingCode(sock, phone);
+
+    res.send(`
       <html>
-        <head>
-          <title>WhatsApp Pairing QR</title>
-          <style>
-            body { font-family: sans-serif; text-align: center; background: #f4f4f4; padding-top: 40px; }
-            h1 { font-size: 22px; color: #333; }
-            img { margin-top: 20px; border: 6px solid #ccc; border-radius: 10px; }
-          </style>
-        </head>
-        <body>
-          <h1>${username}, scan QR kuunganisha WhatsApp</h1>
-          <img src="${qrImage}" alt="QR Code" />
-          <p style="margin-top: 20px; color: #888;">QR hubadilika kila sekunde chache. Hakikisha unascann haraka.</p>
+        <body style="text-align:center;font-family:sans-serif;margin-top:50px;">
+          <h2>✅ Pairing Code ya ${phone}</h2>
+          <div style="font-size:2em; font-weight:bold; color:green;">${pairingCode}</div>
+          <p>👉 Nenda WhatsApp > Linked Devices > Link with code</p>
         </body>
       </html>
     `);
   } catch (err) {
-    console.error("QR Error:", err);
-    return res.status(500).send('🚫 Hitilafu katika kutengeneza QR');
+    console.error("❌ Error:", err);
+    res.send("🚫 Hitilafu wakati wa kutengeneza pairing code. Jaribu tena.");
   }
 });
 
-// Serve Pair Code
-app.get('/paircode', (req, res) => {
-  if (!fs.existsSync(PAIR_PATH)) {
-    return res.status(503).send('⏳ Pair code haijapatikana bado.');
-  }
-
-  const pairCode = fs.readFileSync(PAIR_PATH, 'utf-8').trim();
-  return res.send(`<h2 style="font-family:sans-serif;text-align:center;margin-top:50px;">🔢 Pair Code: ${pairCode}</h2>`);
-});
-
-// Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🌍 Pairing Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`✅ Server running on http://localhost:${PORT}`);
+});
