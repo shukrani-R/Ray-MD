@@ -11,7 +11,7 @@
     "start": "npm run ray",
     "test": "node --check control.js",
     "build": "tsc",
-    "pairing": "node server.js"  // 👈 pairing site runner
+    "pairing": "node server.js"
   },
   "keywords": [
     "bot",
