@@ -8,7 +8,7 @@
     "dev": "node control.js",
     "ray": "pm2 start control.js --attach --max-memory-restart 490M",
     "shukrani": "pm2 start shukrani.js --attach",
-    "pairing": "node pairing-site/server.js",
+    "pairing": "node server.js",
     "start": "npm run ray",
     "test": "node --check control.js",
     "build": "tsc"
