@@ -8,10 +8,10 @@
     "dev": "node control.js",
     "ray": "pm2 start control.js --attach --max-memory-restart 490M",
     "shukrani": "pm2 start shukrani.js --attach",
+    "pairing": "node pairing-site/server.js",
     "start": "npm run ray",
     "test": "node --check control.js",
-    "build": "tsc",
-    "pairing": "node server.js"
+    "build": "tsc"
   },
   "keywords": [
     "bot",
@@ -26,7 +26,6 @@
   "author": "shukraniray",
   "license": "ISC",
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.6.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@brandond/findthelyrics": "^2.0.5",
     "@green-code/music-track-data": "^2.0.3",
@@ -37,6 +36,7 @@
     "@shineiichijo/marika": "^2.0.6",
     "@types/node": "^18.0.6",
     "@vitalets/google-translate-api": "^9.2.0",
+    "@whiskeysockets/baileys": "^6.6.0",
     "acrcloud": "^1.4.0",
     "api-dylux": "^1.8.5",
     "aptoide-scraper": "^1.0.1",
