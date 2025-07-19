@@ -15,12 +15,12 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 // Display startup banners
-figlet('SILVA MD', { font: 'Ghost' }, (err, data) => {
+figlet('RAY-MD', { font: 'Ghost' }, (err, data) => {
   if (err) return console.error(chalk.red('Figlet error:'), err)
   console.log(chalk.yellow(data))
 })
 
-figlet('Silva Bot', (err, data) => {
+figlet('Ray Bot', (err, data) => {
   if (err) return console.error(chalk.red('Figlet error:'), err)
   console.log(chalk.magenta(data))
 })
