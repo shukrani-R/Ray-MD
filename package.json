@@ -1,7 +1,7 @@
 {
-    "name": "SILVA MD",
+    "name": "Ray MD",
     "version": "4.0.1",
-    "description": "Silva MD Bot is a powerful, multi-functional WhatsApp bot designed for moderation, automation, media tools, and smart AI features — all in one seamless experience. Built for performance, secured for trust. 🚀",
+    "description": "Ray MD Bot is a powerful, multi-functional WhatsApp bot designed for moderation, automation, media tools, and smart AI features — all in one seamless experience. Built for performance, secured for trust. 🚀",
   "main": "raymondi.js",
   "type": "module",
   "directories": {
@@ -25,18 +25,18 @@
     "guru-bot",
     "ray-md"
   ],
-  "homepage": "https://github.com/SilvaTechB/silva-md-bot",
+  "homepage": "https://github.com/shukrani-R/Ray-MD",
   "author": {
     "name": "GURU",
     "email": "sylivanus.silva@gmail.com",
-    "url": "https://github.com/SilvaTechB"
+    "url": "https://github.com/Shukrani-R"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SilvaTechB/silva-md-bot.git"
+    "url": "git+https://github.com/shukrani-R/Ray-MD.git"
   },
   "bugs": {
-    "url": "https://github.com/SilvaTechB/silva-md-bot/issues"
+    "url": "https://github.com/shukrani-R/Ray-MD/issues"
   },
   "license": "Apache-2.0",
   "dependencies": {
