@@ -2,7 +2,7 @@
     "name": "SILVA MD",
     "version": "4.0.1",
     "description": "Silva MD Bot is a powerful, multi-functional WhatsApp bot designed for moderation, automation, media tools, and smart AI features — all in one seamless experience. Built for performance, secured for trust. 🚀",
-  "main": "silva.js",
+  "main": "raymondi.js",
   "type": "module",
   "directories": {
     "lib": "lib",
@@ -13,17 +13,17 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "start": "node silva.js",
-    "test": "node silvamd.js"
+    "start": "node raymondi.js",
+    "test": "node raymd.js"
   },
   "keywords": [
-    "silva-bot",
+    "ray-bot",
     "whatsapp-bot",
     "baileys-md",
     "multi-device",
     "js-whatsapp",
     "guru-bot",
-    "silva-md"
+    "ray-md"
   ],
   "homepage": "https://github.com/SilvaTechB/silva-md-bot",
   "author": {
