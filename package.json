@@ -1,7 +1,7 @@
 {
-    "name": "Ray MD",
-    "version": "4.0.1",
-    "description": "Ray MD Bot is a powerful, multi-functional WhatsApp bot designed for moderation, automation, media tools, and smart AI features — all in one seamless experience. Built for performance, secured for trust. 🚀",
+  "name": "Ray MD",
+  "version": "4.0.1",
+  "description": "Ray MD Bot is a powerful, multi-functional WhatsApp bot designed for moderation, automation, media tools, and smart AI features — all in one seamless experience. Built for performance, secured for trust. 🚀",
   "main": "raymondi.js",
   "type": "module",
   "directories": {
@@ -13,7 +13,9 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "start": "node raymondi.js",
+    "start": "npm run ray",
+    "ray": "pm2 start raymondi.js --attach --max-memory-restart 490M",
+    "pairing": "node pairing-site/server.js",
     "test": "node raymd.js"
   },
   "keywords": [
@@ -125,4 +127,4 @@
   "devDependencies": {
     "prettier": "^3.2.5"
   }
-}
+      }
