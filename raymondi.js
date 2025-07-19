@@ -30,7 +30,7 @@ const app = express()
 const port = process.env.PORT || 5000
 
 app.use(express.static(path.join(__dirname, 'jusorts')))
-app.get('/', (req, res) => res.redirect('/silva.html'))
+app.get('/', (req, res) => res.redirect('/ray.html'))
 
 app.listen(port, () => {
   console.log(chalk.green(`Port ${port} is open`))
@@ -77,7 +77,7 @@ async function start(file) {
   })
 
   // Plugin loader
-  const pluginsFolder = path.join(__dirname, 'SilvaXlab')
+  const pluginsFolder = path.join(__dirname, 'plugins')
   fs.readdir(pluginsFolder, async (err, files) => {
     if (err) {
       console.error(chalk.red(`Error reading plugins: ${err}`))
